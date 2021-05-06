@@ -1,0 +1,726 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{subcaption} %per le figure doppie 
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularborder}
+\usepackage{footnote}
+\usepackage{caption}
+\usepackage[sorting=none,style=numeric-comp,backend=biber]{biblatex}
+\addbibresource{Bibliografia.bib}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{newlfont}
+\usepackage{color}
+\usepackage{url}
+\textwidth=450pt\oddsidemargin=0pt
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[Lenny]{fncychap}
+\begin{document}
+
+
+\begin{titlepage}
+%
+%
+% UNA VOLTA FATTE LE DOVUTE MODIFICHE SOSTITUIRE "RED" CON "BLACK" NEI COMANDI \textcolor
+%
+%
+\begin{center}
+{{\Large{\textsc{Alma Mater Studiorum $\cdot$ Universit\`a di Bologna}}}} 
+\rule[0.1cm]{15.8cm}{0.1mm}
+\rule[0.5cm]{15.8cm}{0.6mm}
+\\\vspace{3mm}
+
+{\small{\bf Scuola di Scienze \\ 
+Dipartimento di Fisica e Astronomia\\
+Corso di Laurea in Fisica}}
+
+\end{center}
+
+\vspace{23mm}
+
+\begin{center}\textcolor{black}{
+%
+% INSERIRE IL TITOLO DELLA TESI
+%
+{\LARGE{\bf Magnetic Resonance for fluids in porous media: applications to Cultural Heritage}}\\
+}\end{center}
+
+\vspace{50mm} \par \noindent
+
+\begin{minipage}[t]{0.47\textwidth}
+%
+% INSERIRE IL NOME DEL RELATORE CON IL RELATIVO TITOLO DI DOTTORE O PROFESSORE
+%
+{\large{\bf Relatore: \vspace{2mm}\\\textcolor{black}{
+Dott.ssa Claudia Testa}\\\\
+%
+% INSERIRE IL NOME DEL CORRELATORE CON IL RELATIVO TITOLO DI DOTTORE O PROFESSORE
+%
+% SE NON AVETE UN CORRELATORE CANCELLATE LE PROSSIME 3 RIGHE
+%
+\textcolor{black}{
+\bf Correlatore:
+\vspace{2mm}\\
+Dott. Leonardo Brizi\\\\}}}
+\end{minipage}
+%
+\hfill
+%
+\begin{minipage}[t]{0.47\textwidth}\raggedleft \textcolor{black}{
+{\large{\bf Presentata da:
+\vspace{2mm}\\
+%
+% INSERIRE IL NOME DEL CANDIDATO
+%
+Giuseppe Filitto}}}
+\end{minipage}
+
+\vspace{40mm}
+
+\begin{center}
+%
+% INSERIRE L'ANNO ACCADEMICO
+%
+Anno Accademico \textcolor{black}{2018/2019}
+\end{center}
+
+\end{titlepage}
+
+\clearpage
+\thispagestyle{empty}
+\begin{flushright}
+\null\vspace{\stretch{1}}
+\large{\emph{\dots To my family}}
+\vspace{\stretch{2}}\null
+\end{flushright}
+ 
+ 
+ \clearpage
+\begin{abstract}
+	Nowadays there are several methodologies that offer us the possibility to get information about properties, characteristics and conservation status of materials of interest to Cultural Heritage. However, most of these techniques cannot be carried out at all, because of the destructiveness and/or invasiveness of the method. Nuclear Magnetic Resonance overcomes these difficulties since it can be applied in a non-invasive and non-destructive way especially if it is performed by portable devices. By detecting $^1H$ nuclei of water, analyses to study the conservation status and to have a better knowledge of porous materials are possible. In fact, water is the main cause of damage for the artifacts because it may produce dissolution of the binder, mechanical stresses and it is also responsible of transporting aggressive pollutants that might cause acid corrosion. Therefore it is of primary importance to have efficient diagnostic, possibly non-destructive and non-invasive, method to detect how water affects the artifact in order to plan the most appropriate procedure for the protection and the conservation of the artifact. In this thesis interesting applications to stone, fresco, paint, wood and paper will be presented, proving that NMR is a powerful tool for conducting analyzes in the field of Cultural Heritage.
+\end{abstract}
+
+
+
+\begin{abstract}
+	Al giorno d'oggi ci sono diverse metodologie che ci offrono la possibilità di ottenere informazioni su proprietà, caratteristiche e stato di conservazione dei materiali di interesse per i Beni Culturali. Tuttavia, la maggior parte di queste tecniche non può essere eseguita affatto a causa della distruttività e/o dell'invasività del metodo. La Risonanza Magnetica Nucleare supera queste difficoltà poiché può essere applicata in modo non invasivo e non distruttivo, specialmente se viene eseguita da dispositivi portatili. Rilevando i nuclei $^1H$ dell'acqua, sono possibili analisi per studiare lo stato di conservazione e per avere una migliore conoscenza dei materiali porosi. Infatti, l'acqua è la principale causa di danno per i manufatti perché può produrre la dissoluzione dei leganti, stress meccanici ed è anche responsabile del trasporto di sostanze inquinanti e aggressive che potrebbero causare corrosione acida. Pertanto è di primaria importanza disporre di un metodo diagnostico efficiente, possibilmente non distruttivo e non invasivo, per rilevare come l'acqua influenza l'artefatto al fine di pianificare la procedura più appropriata per la protezione e la conservazione del manufatto. In questa tesi verranno presentate interessanti applicazioni su pietra, affresco, dipinti, legno e carta, a dimostrazione del fatto che la NMR è un potente strumento per condurre analisi nel campo dei Beni Culturali.
+\end{abstract}
+
+\clearpage
+\tableofcontents
+
+
+
+
+
+
+
+\clearpage
+\chapter{Introduction}
+%\addcontentsline{toc}{chapter}{Introduction}
+The aim of this work is to offer an overview of original NMR techniques for the study of hydrogenated fluids confined in porous media of interest for Cultural Heritage which, especially in Italy, represents a topic of great and extreme interest on the whole national territory. Indeed Italy has the largest Cultural Heritage in the world with over 3,400 museums, with about two thousand areas and archaeological parks and with 43 UNESCO sites\cite{dieci}.\\ 
+Understanding the state of conservation, the knowledge of the causes of degradation of materials, the development of new methods with the scope of lengthening the life time of the artifacts, are mandatory for a correct safeguard of Cultural Heritage assets. Monuments, statues, mortars, frescos, wood and many other materials are, as matter of fact, porous materials continuously exposed to environmental phenomena, to vapour and liquid water that can diffuse from the environment and give rise to degradation processes. For example, in the case of natural and artificial stones, water may produce dissolution of the binder and in general mechanical stresses. Also, acid corrosion can be caused by the uptake of pollutants dissolved in water. Moreover, paintings and frescos are made of a multi-layers structure with different materials and different behavior in relation to humidity. Therefore, it is of primary importance to have efficient diagnostic methods for evaluating the characteristics of the materials (including porosity, pore size distribution, connectivity), possibly in a non-destructive and non-invasive way, in order to plan the most appropriate procedure for the protection and the conservation of Cultural Heritage artifacts\cite{quattro}.\\
+Nowadays there are different techniques of physical and chemical interest that offer us the possibility to get information about characteristics and conservation status  of materials interesting for  Cultural Heritage purposes. Many techniques are used for pigment identification, including micro-Raman analysis, micro-Fourier-transformed infrared (FTIR) analysis and energy dispersive X-ray (EDX) analysis, which are some of the most suitable methods for this purpose\cite{sette}. Known and also widely used are non-destructive methods, connected with the use of:  X-ray radiation (radiography), ultraviolet radiation (UV fluorescence) and near infrared radiation (IR reflectography)\cite{otto}.\\
+These methods give possibility to reveal overpainted pictures, underdrawings, hidden signatures and therefore provide information about early composition, development and present state of an under-test artifact. Procedures for monitoring the restoration works on ancient building surfaces (i.e. application of protective films, water repellent, restoration of plaster etc..) include other techniques such as IRT (infrared thermography), Gravimetric tests, Scanning electron microscopy (SEM). Moreover a testing technique for the full-volume inspection of an object is the X-ray Computed Tomography (CT) which is able to give morphological and physical information on the inner structure of the investigated sample in a non-destructive way[9]. Although the use of the aforementioned techniques is well established in the field of Cultural Heritage, these are not always suitable for analyzing properly some artifacts. In fact, in order to perform analysis, such as micro-FTIR, micro-Raman spectroscopy, microanalysis by energy dispersive X-rays, for the characterization of the materials and pigments of artworks there is a need to collect sample pieces. Moreover in the case of paintings to identify the pictorial layers, the degradation and even to reveal the techniques of different artists, it is used to practise cross-sections and stratigraphies which are still nowdays among the most used techniques in the work of the museum scientist\cite{sette}.\\
+However, in the case of high artistic value artifacts, this kind of procedure cannot be carried out at all, because of the destructiveness. The same is true in the case of gravimetric tests and in all those techniques that require sampling of the artifact to be analyzed. As regards the non-destructive techniques, the use might be influenced by the environmental and climatic conditions of the place in which one operates. For example, in the case of IRT, temperature, humidity and wind speed can affect the quality of the results, as they modify the ways in which the heat-exchange between materials and the surrounding environment takes place. For X-Ray CT, non-destructiveness does not imply that the technique is not invasive since the radiation with which one operates is ionizing. In fact, in the case of very energetic radiations, and/or in high dose, one could encounter physical and chemical effects such as: photodisintegration, radiolysis, destruction of crystal lattices, formation of free radicals etc... that may affect the artifact. Moreover, some techniques require specific equipment that may not be moved, or that is still very difficult to transport, in order to perform in-situ analyses.\\
+NMR overcomes these difficulties as it can be applied in many forms and ways. Since we are dealing with low magnetic fields and pulses whose wavelength is in the radio spectrum, which has no ionization properties, NMR is a non-invasive technique. Furthermore thanks to portable devices it is possible to study in-situ, without collecting samples, in a non-invasive and non-destructive way, Cultural Heritage items by the characterization of the pore space and the distribution of fluids inside different kinds of porous materials\cite{uno}. This is very helpful for choosing the most appropriate procedure for the protection and the conservation of Cultural Heritage artifacts, since from NMR analyzes it is possible to understand the state of conservation of porous media and also how they react to treatments that involve the use of various chemical solvents for different purposes as will be illustrated in the specific case in the applications section.\\
+Until the beginnings of this century no one would have thought of employing NMR techniques for materials and objects of Cultural Heritage, although studies of porous media by magnetic resonance, shortly MRPM, had been carried out since the early 50's by the oil-industry, which developed devices to study properties of porous rock formations directly from the boreholes at depths of thousands of meters\cite{tre}. In the second half of 1990 a research group, here in Bologna, realized that Cultural Heritage could benefit from MRPM techniques. Nowadays, there is a wide community from all over the world who recognizes NMR as an effective and evolving instrument for the characterization of the pore space structure and of the distribution, diffusion and flow of fluids inside different kinds of porous materials\cite{quattro}.\\
+In this thesis, results of NMR applications to stones, frescos, paintings, wood and paper are presented. Regarding Stone, one of the most studied material in literature, many aspects will be analyzed, predominantly by NMR-Relaxometry and MRI, from the study of porosity and pore size distribution to the evaluation of the hydrophobic effect and spatial distribution of compounds to be used as protective treatments. Frescos are really delicate items, because of their dimensions and vulnerability must be analyzed with non-destructive and non-invasive techniques. Here, the versatility of NMR will be exploited thanks to single-Sided NMR (or Unilateral NMR) that can be performed directly in-situ to characterize  the amount and the distribution of water in artifacts without collecting any pieces from it. Paintings will be explored by Single-Sided NMR which allows one to obtain depth profiles in order to distinguish different layers and their behavior to moisture uptake that can help in selecting correct and suitable conservation and restoration procedures. Wood and Paper are characterized by chains of glucose which form cellulose whose chains can be arranged in a more or less ordered way. When degradation occurs the balance of cellulose domain is lost and so the content of water changes. By NMR Relaxometry we will see how degradation processes can be detected in such kind of materials.
+\clearpage
+
+\chapter{Methods}
+%\addcontentsline{toc}{chapter}{Methods}
+
+This part of the thesis is aimed to show the main  Methods used to perform the experiments described in the applications section. First the NMR-techniques including Relaxometry and MRI will be described. We will then move on to the description of the NMR data analysis process: the Inverse Laplace Transformation.
+
+\section{NMR Techniques}
+Nuclear Magnetic Resonance (NMR) is a physical phenomenon which occurs when nuclei (in this case $^1H$ nuclei of water molecules) are immersed in a static magnetic field and subjected to a second oscillating magnetic field. \\
+There are many different techniques and methodologies that can be performed, it depends on the information required. The most popular one is the MRI that produce images of the sample for diagnostic and medical purposes.\\ 
+
+\subsection{Relaxometry}
+The relaxation is the process that describes the return to the equilibrium of the magnetization of the system after a radio-frequency pulse. It is an exponential process characterized by two physical phenomena and therefore two different time constants called $T_1$ and $T_2$. \\
+$T_1$ is defined as spin-lattice relaxation time as it involves the energy transfers that takes place between the spin system and the rest of the environment.\\
+$T_2$ is defined as spin-spin relaxation time as it involves the interactions between the magnetic moments of the single nuclei, i.e. is linked to the temporal dynamics that leads the atomic spin to lose coherency and therefore to phase out.\\
+Measurements of relaxation times give us information about fluids, pores space and their interaction with the porous medium. This is possible exploiting the so-called “Surface Effect” which describes the interaction between the solid surface of the porous matrix and the molecular fluid in contact with it.  The measured relaxation times of hydrogenated fluid confined into a porous medium are correlated to the Surface/Volume (S/V) ratio of the restricting geometries. If we consider a fully saturated pore of volume V and the  surface of the pore S, the relaxation times can be described as:
+\begin{equation} \label{surface effect}
+	\large{\frac{1}{T_{1,2}}=\rho_{1,2}\frac{S}{V}+\frac{1}{T_{1,2}b}}
+	\end{equation}
+
+where $\rho_{1,2}$ is the surface relaxivity and the indexes $b$ denotes the bulk relaxation (for not confined fluid). Bulk contributions are often smaller than those of surfaces and in many cases may be neglected\cite{uno}.\\
+By using a proper software and a dedicated algorithm, such as UPEN, it is possible to invert the acquired NMR signal for obtaining the relaxation times distribution\cite{undici}. The distribution of the relaxation times indicates the distribution of the pore sizes in which the fluid is confined. The validity of the method was demonstrated by comparing the relaxation times distributions obtained for fully water-saturated stone samples with the distribution of the pore throat sizes, of the same samples, obtained by the Mercury Injection Porosity (MIP) technique\cite{due}.
+In the presence of a magnetic field gradient G, such as the case of Unilateral NMR, molecular diffusion must be accounted for.  Diffusion is the random translational motion of molecules or ions, related to molecular dimensions. As a consequence, in strongly inhomogeneous field, the transverse spin–spin relaxation rate also depends on the G strength:
+\begin{equation} \label{surface effect 2}
+	\large{\frac{1}{T_{2}}=\rho_{2}\frac{S}{V}+\frac{1}{T_{2}b}+\frac{D(\gamma G T_E)^2}{12}}
+\end{equation}
+
+where $D$ is the diffusion coefficient, $\gamma$ is the gyromagnetic ratio of the observed nucleus, and $T_E$ is the echo time.\\ 
+In the case of single-sided NMR devices, the gradient $G$ is particularly strong. Thus, the effect of the gradient prevails the “Surface effect” especially for the $^1H$ in the biggest pores.
+\subsection{Pulse Sequences}
+A radio-frequency pulse consists in the application of an oscillating magnetic field $B_1$ perpendicular to the $B_0$, for a certain interval of time, in order to move the net magnetization of the system from the equilibrium condition. Depending on the application time and the intensity of the $B_1$, the pulse can flip the magnetization vector by a certain angle (flip or nutation angle). The most common pulses that characterize the pulse sequences, in order to measure $T_1$ and $T_2$ time constants, are the $\pi/2$-pulse and $\pi$-pulse.\\ The acquired signal is the FID (Free Induction Decay) whose duration is limited by the $T_2$ relaxation and due to the inhomogeneity of the local fields it presents a more rapid signal damping. Moreover, sometimes the effect of diffusion must be accounted for. To resolve this issues and in order to measure the correct decaying for the relaxation times, there are several Pulse Sequences. The most used are Spin-Echo, CPMG and Saturation Recovery. 
+
+
+	\subsubsection{Spin-Echo} \label{spinecho}
+	 The Spin-Echo sequence consists in a first $\pi/2$ pulse followed by a second $\pi$-pulse applied after a certain interval of time called Echo-Time($T_E$). The $\pi$ pulse, produces an echo due to the re-phasing of the spins. The echo envelope give us the correct exponential $T_2$ relaxation process. In fact the exponential relaxation $T_{2}^*$ measured on the FID would have been shorter.\\ The decay of the magnetization is given by the equation:
+         
+         \begin{equation}
+         	\large{M(T_E)=M_0\mathrm{e}^{- \frac{T_E}{T_2}}}
+         \end{equation}
+         \begin{figure}[h]
+      	\centering
+      	\includegraphics[width=0.45\linewidth]{Spin2}
+      	\caption{Sketch of a Spin-echo pulse sequence}\label{Spinecho}
+      \end{figure}
+      \subsubsection{CPMG} 
+      Carr-Purcell-Meiboom-Gill (CPMG) pulse sequence for measuring $T_2$ consists in a first $\pi/2$ pulse followed by a train of $\pi$-pulse, to obtain several echoes interspersed by the echo-time ($T_E$). The echo train reduces the effect of diffusion on the acquired signal. \\The train echo envelope give us the exponential $T_2$ relaxation process: 
+       
+      \begin{equation}
+      	\large{M(t)= M_0 \mathrm{e}^{- \frac{t}{T_2}}}
+      \end{equation}
+      
+      \begin{figure}[h]
+      	\centering
+      	\includegraphics[width=0.4\linewidth]{CPMG}
+      	\caption{Sketch of a CPMG pulse sequence}\label{CPMG}
+      \end{figure}
+      
+      
+      
+      
+      \subsubsection{Saturation Recovery}
+      The Saturation Recovery consists in a first $\pi/2$ pulse to perturb the system followed by another $\pi/2$ pulse after a certain time $\tau$.  By varying $\tau$, and acquiring the signal many times one can have information on the relaxation process  of the longitudinal component of the magnetization and estimate the exponential constant time $T_1$:   
+
+
+\begin{equation}
+	\large{ M_z(\tau)=M_0(1- \mathrm{e}^{- \frac{\tau}{T_1}})}
+\end{equation}
+
+
+\begin{figure}[h]
+      	\centering
+      	\includegraphics[width=0.4\linewidth]{Saturationrecovery}
+      	\caption{Sketck of saturation recovery pulse sequence}\label{satrecovery}
+      \end{figure}
+
+
+
+
+\subsection{Depth Profiling}
+
+Single-Sided devices, in particular NMR-MOUSE, allow one to obtain depth profiles. Thanks to the high-precision lift it is possible moving the sensitive volume across the sample depth. This is achieved by changing the distance between the Profile NMR-MOUSE and the sample surface in increments of $\mathrm{d}y$. As explained in the materials section, the resolution of the sensitive volume and the maximum depth achievable depends on the model of the apparatus and on the set-up.
+Once the sample is placed on the instrument, the measurement is performed at the initial position. Then pulse sequences are performed to acquire the signal. When the acquisition is completed, the instrument is translated in micrometer steps by the lift, and a new measurement is repeated in the new position. This process goes on until an NMR profile is obtained.
+  From the NMR decay signal of each step we extrapolate the value of the magnetization $M_0=M(t=0)$,  which is proportional to the proton density of the $^1H$ nuclei in that position. This is true since we are in a condition so that the value of the magnetization is linearly proportional to the applied magnetic field (Curie Law). The magnetization at the equilibrium per volume unit, is a vector that has the same direction of $B_0$ and the magnitude is given by:
+\begin{equation} \label{modulo magnetizzazione}
+	M_0=N \frac{\gamma^2 \hbar^2 I (I+1)}{3K_BT}B_0
+\end{equation}
+where $\gamma$ is the gyromagnetic ratio, $I$ the spin of the nuclei, $K_B$ is the Boltzmann's constant , $T$ is the temperature and  $N$ is The total amount of nuclei per volume unit.\\
+Depth profiles are then obtained plotting the extrapolated amplitude value for each step as function of the depth. That allows us to visualize the quantity of $^1H$ nuclei in order to better understand the thickness of the different layers inside the sample. In fact, you can quantify the thickness of each layer thanks to the amount of water present in it. Specifically, the water of a layer can be quantified according to the mobility of the $^1H$ nuclei in the material. As in each layer the material is different, there will be a different signal intensity due to a different mobility of the $^1H$ water nuclei. Therefore, by plotting the value $M_0$ of the magnetization as a function of depth, information on the thickness can be drawn by seeing how the value of the magnetization changes as the depth varies.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{depthprofile3}
+	\caption{Example of depth profile of a painting sample containing egg yolk binder with yellow pigment on a lineseed oil preparatory layer\cite{marmotti}.}\label{esempiodepth}
+\end{figure}
+
+ 
+\subsection{MRI}
+Magnetic Resonance Imaging (MRI) is a NMR technique that allows to visualize the spatial distribution of the hydrogenated fluids, in this case $^1H$ of water.\\ MRI was originally called NMRI (nuclear magnetic resonance imaging), but the use of 'nuclear' in the acronym was dropped to avoid negative associations in the medical field.\\
+To perform the study by MRI, the sample is positioned inside a MRI scanner that generates a strong magnetic field gradient, up to identify the nuclei position along an axis. In fact the application of a constant gradient $B_z$ along a direction $x$ determines a field $B_z(x)$ increasing linearly with $x$, so the resonance frequency depends linearly on the position of the nuclei along the $x$ axis:
+
+\begin{equation} \label{frequenzaMRI}
+	\large{\omega(x)= \gamma B_z(0)+ \gamma G_x}
+\end{equation}
+where $\gamma$ is the gyromagnetic ratio of the nucleus observed, and the gradient $G_x= \frac{\Delta B_z}{\Delta x} = const.$\\
+Multidimensional systems which are composed of more than one axis, to univocally solve the system, that is to have a correct image, require the application of a gradient in each direction:\\
+\large{\[
+\begin{cases}
+G_x= \frac{\Delta B_z}{\Delta x} \\
+G_y= \frac{\Delta B_z}{\Delta y} \\
+G_z= \frac{\Delta B_z}{\Delta z}
+\end{cases}
+\]}
+\\
+
+To build the image we use the zeugmatographic principle:
+\begin{list}{-}{}
+	\item each point, for example of the $x$ axis, is assigned to a different value of the magnetic field $B_z(x)$, which will correspond to a different Larmor Frequency: $\nu(x)= \frac{\gamma}{2 \pi} B_z (x)$;
+	\item analyze the NMR signal by Fourier analysis to obtain the frequency distribution $f(\nu)$ (which we call $x$-projection);
+	\item the signal intensity at the frequency $\nu(x^*)$ will be proportional to the density of $^1H$ nuclei in $x^*$.(This is true only in part because the image will inevitably always weigh in $T_1$ and $T_2$);
+	\item to have a spatially resolved image it will be necessary to repeat the operation along different directions, by obtaining different projections.
+\end{list}
+
+There is then a whole complex coding process, which gives us as a result the original distribution of the $^1H$ nuclei of the water based on the weighing on $T_1$ and $T_2$, in the form of a grey-scale image .  
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{kspace}
+	\caption{Image obtained from the frequencies in the k-space. Selected from \cite{kspace}}\label{kspace}
+\end{figure}
+
+
+
+\section{Inverse Laplace Transformation}
+
+The NMR relaxation processes are manifested as decaying signals over the acquisition time. NMR relaxometry data analysis involves a Laplace inversion to obtain a distribution of relaxation times starting from the acquired NMR signals.\\
+Depending on the nature of the sample, the relaxation assumes a proper behavior which is related to the complexity of the system. Just for pure/bulk materials the spins are in the same environment and the relaxation can be described by a mono-exponential function. However, in the most of real systems, composed of several components the relaxation is described by a multi-exponential behavior. Assuming to have a system composed of a discrete number $M> 2$ of components, then the signal $S(t)$ can fit the model: 
+
+\begin{equation} \label{Multiexponentialbehaviour}
+\large{S(t_i)=\sum_{k=1}^{M} a_k \mathrm{e}^{-\frac{t_i}{T_{1,2}}_k}}
+	\end{equation}
+	\\
+Since the fit of a discrete distribution of systems with more than two components has about the same error as the fit of a continuous distribution, a continuous distribution of relaxation times can be considered. 
+     In our case the Laplace transform:
+ \begin{equation} \label{laplace trans}
+	\large { f(x) \rightarrow F(z) = \int_{0}^{\infty} f(x) \mathrm{e}^{-zx} \mathrm{d}z}
+\end{equation}
+\\
+ can be written as:
+\begin{equation}\label{Laplace our case}
+	\large { S(t) = \int_{0}^{\infty} f(T_{1,2}) \mathrm{e}^{- \frac{t}{T_{1,2}}} \mathrm{d}T_{1,2}}
+\end{equation}\\
+where $f(T_{1,2})$ is the density signal function and $S(t)$ is the acquired NMR Signal. 
+One should invert the signal from the measured time scale t to the one of the relaxation times $T_{1,2}$ in order to obtain the function $f(T_{1,2})$. This mathematical operation is called Inverse Laplace Transform from the measured time scale "$t$" to the one of the relaxation times.\\
+Mathematically, the inversion is an ill-conditioned problem, because $S(t)$ is not an analytical function but it is given by experimental points affected by noise that gives an infinite number of solution that satisfy the inversion. To overcome this difficult it is hypothesized that the signal is composed by a high number of exponential components (order of $10^{2}$) and then the so-called quasi-continuous distribution of relaxation times is computed in order to find a unique solution.
+The procedure is made by algorithms which can have different approaches\cite{sei}. The most common approach imposes to minimize a target function. In the inversion algorithms a smoothing coefficient , which is generally fixed, is used to avoid abrupt variations in the distribution.
+Anyway some algorithms might wide the narrow peak and break the tail of the distribution curve into several peaks that could be falsely interpreted as separate populations, that not well-represents the real system. Among the various algorithms, UPEN(Uniform PENalty), developed in Bologna, introduces the same "penalty" in the data along the entire distribution curve, avoiding peaks not justified by the data. The algorithm works by using a target function with a smoothing coefficient variable along all the points of the computed distribution function. By avoiding the creation of peaks maybe not justified by the data, UPEN is considered one of the best inversion NMR data algorithm\cite{tredici, quattordici}.
+
+\clearpage
+
+\chapter{Materials}
+%\addcontentsline{toc}{chapter}{Materials}
+
+\section{NMR Apparata}
+In order to exploit the physical phenomenon of the Nuclear Magnetic Resonance and to study  the pore structure and the water content of the Cultural Heritage artifacts, there are many devices, each one with specific features to accomplish different investigations. Both Conventional NMR and MRI apparata work with homogeneous magnetic field and because of their sizes they are not easy to move and require samples of artifacts to be analyzed in. Single-sided NMR apparata instead, such as NMR-MOUSE (Margritek, Germany), work with inhomogeneous field, furthermore they are portable devices which allow one to perform non-destructive and non-invasive measurements directly in-situ.
+
+\subsection{Portable devices: Single-Sided NMR}
+
+
+\begin{figure}[h]
+      	\centering
+      	\includegraphics[width=0.9\linewidth]{mousepm10}
+      	\caption{NMR-MOUSE PM10 mounted on a lift connected to a KEA II spectrometer.}\label{mousepm10}
+      \end{figure}
+Single sided NMR devices, or sometimes Unilateral NMR, are compact, portable and designed for in-situ measurements. The necessity of in-situ measurements made the dimensions of magnets to be drastically reduced, thus the strength and 
+the homogeneity of the field is lowered respect to the conventional NMR instruments.
+They started to be commercialized as well-logging instruments and become much more widespread in the mid of the 90's after the development of the NMR-MOUSE (MObile Universal Surface Explorer) which was tested to be useful for material quality screenings\cite{cinque}. Unilateral NMR magnets are characterized by inhomogeneous field and a strong magnetic gradient, $g=\frac{\Delta B_z}{\Delta y}$ , in the y direction, perpendicular to the magnet surface.
+The radio-frequency coil that generates the pulse and acquire the signal (the coil is a transceiver) is located between the magnetic poles of a U-shaped magnet, as shown in Figure \ref{magnets}. The peculiarity of this kind of apparatus are the really compact dimensions that make it suitable for analyzing many artifacts in the Cultural heritage field since they can be approached and moved without touching the artifact itself. Moreover some kind of apparatus such as the NMR-MOUSE own the possibility of shifting the sensitive volume inside the analyzed object thanks to the high-precision automated lift, piloted by a proper software, that allows steps of micrometers (Figure \ref{NMRprofile}). In this way it is possible to obtain profiles of the sample with maximum depth of the order of centimeters. This is really useful when the artifacts are composed of multi-layers such as the case of frescoes and paints, and in general for depth surveys, which represent a powerful and required investigation tool in the field of cultural heritage, especially if non-invasive and non-destructive such as NMR. The instruments are controlled, usually by a spectrometer (like the KEAII) connected by a PC and managed by a proprietary software (Prospa, Magritek). The sensitive volume and the maximum depth, in which the resonance condition is satisfy, depends on the model as shown in Table \ref{Table:1}. 
+
+
+\begin{table}[h] 
+\centering
+\begin{tabular}{lcc}
+
+\toprule
+Model  & Max depth(mm) & Resolution($\mu m$) \\
+\midrule
+PM2 &2 & 5\\
+PM5 & 5&10 \\
+PM10 &10 & 30\\
+PM25 & 25& 100\\
+\bottomrule
+
+\end{tabular}
+
+\caption{Features of some profile  NMR-MOUSE (Magritek, Germany)}\label{Table:1}
+
+\end{table}
+
+Taking the NMR-MOUSE PM10 (Magritek, Germany) as a reference, we can makesome interesting considerations.
+The Magnetic Field in the sensitive volume is $B=0.327$ T for $^1H$ nuclei of Larmor frequency  $\nu = 13.9$ $ MHz$. It could be noted that the position between permanent magnet and sensitive volume is fixed, and in the case of the NMR-MOUSE PM10 is at 10 mm from the surface of the magnet. Moreover it is equipped with spacers, each of them has 2 mm of thickness, that can be insert or removed, between the permanent magnet and RF-coil in order to reduce the distance between the coil and the sensitive volume. \\
+The smaller is the distance, between the coil and the sensitive volume, the more intense is the signal. On the other hand, the smaller is the distance, the smaller is the maximum depth achievable inside the sample\cite{dodici}.\\
+The thickness of the sensitive volume is related to the frequency band as:
+$\Delta{y_\textup{th}}= \frac{\Delta\omega}{g}$, where $\Delta \omega \propto \frac{1}{t_\textup{pulse}}$. 
+This means that the distance between the sensitive volume and the coil also affects the thickness of the sensitive volume. In fact the spacers change the distance between the RF-coil and the excited sensitive volume. The closer the RF-coil is to the sensitive volume, the better will be the efficiency of the RF-pulse and the signal detection. So the choice of the spacer configuration is fondamental to achieve the best signal-to-noise ratio performance for the experiment depending on the maximum depth to analyze\cite{dodici}.
+
+\begin{figure}[h]
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.89\linewidth, height=6cm]{MagnetsNMRMOUSE} 
+\caption{sketch of NMR-MOUSE sensor}\label{magnets}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=6cm]{ProfileNMRMOUSE}
+\caption{NMR-MOUSE}\label{NMRprofile}
+\end{subfigure}
+ 
+
+
+\caption{(a) U-shaped One-sided access NMR sensor. (b) It is shown the sensitive volume at a given distance external to the Profile NMR-MOUSE. The precision lift which shifts the sensitive volume through the object allows one to obtain depth profiles.
+. Selected from \cite{cinque}.}
+\end{figure}
+
+
+
+\subsection{Conventional Apparata}
+
+Conventional devices are based on homogeneous magnetic field used to perform NMR Relaxometry or MRI analyses. Sometimes the same device allows to perform both using specific coils according to the purpose. The magnetic field can be obtained by a permanent magnet or an electromagnet. The homogeneity of the field, however, has costs to be paid. First of all, the sizes make they not portable outside the lab. Moreover, the electronic system requires a great amount of energy to work and to thermostat the apparatus.  
+An example of laboratory devices used for MRPM are the The Artoscan Tomograph (Esaote S.p.A., Genova, Italy) and the Electromagnet Jeol C-60 (home-built apparatus).
+The Artoscan Tomograph is based on a permanent magnet which produces a magnetic field $B_0$=0.2 T. The peculiarty of Artoscan is the large magnet bore that gives the possibility of analyzing samples of sizes up to 10 cm. This tomograph is suitable both for MRI (most performed) but also, with dedicated coils, for NMR Relaxometry experiments. 
+Electromagnet Jeol is a in-house relaxometer based on an electromagnet controlled by the PC-NMR portable console (Stelar, Pavia). The magnetic field can be varied in the range 0.05 T - 1 T. The Jeol apparatus offers a more homogeneous magnetic field then the ArtoScan but with significantly smaller sensitive volume.
+
+\begin{figure}[h]
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.89\linewidth, height=6cm]{Artoscan} 
+\caption{}
+\label{fig:subim1}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=6cm]{jeol}
+\caption{}
+\label{fig:subim2}
+\end{subfigure}
+ 
+
+
+\caption{(a)MRI apparatus based on the Artoscan Tomograph (Esaote S.p.A., Genova, Italy). (b) Electromagnet Jeol (in-house relaxometer). }
+\end{figure}
+
+\newpage
+
+\chapter{Applications}
+%\addcontentsline{toc}{chapter}{Applications}
+
+The NMR is a discipline that offers different techniques: Magnetic Resonance Relaxometry, Diffusometry, Profiling, and Imaging to study the properties of the porous space of the materials and to obtain information that cannot be obtained by other methods.
+Porous samples studied with the most common techniques (Mercury Injection Porosimetry (MIP), Scanning Electron Microscopy (SEM)), stratigraphies, usually cannot be used for other subsequent measurements and/or sometimes they cannot be studied at all because the destructive nature of the analysis. Instead most of the techniques offered by NMR are non-invasive and non-destructive  with the capability to be exploited directly for in-situ measurements.\\
+NMR allows to define the porosity of a material, the distribution of pore sizes, thanks to the detection of $^1H$ nuclei of water into the pores. Moreover thanks to the NMR-MOUSE depth profiles can be obtained in order to study the thickness of different layers inside the sample.\\
+NMR techniques are used for studying archaeological assets and in general materials of interest to Cultural Heritage.
+
+\section{Stone}
+
+Since the 50s of last century the stone has been the object of extensive studies with NMR.\\
+A significant development of the discipline and its applications  is strictly related to the oil industry that founded the research of innovative devices to be lowered inside the wells to get information about the characteristics of the porous rocks. The Single-sided devices can analyze the content of the rock (quantification of the ratio oil/water) by generating and acquiring the NMR signal of the oil and the water from the porous rock formation outside the borehole at depths of thousands of meters\cite{tre}.\\ 
+The knowledge of capillary properties and porosity is essential for the evaluation of the conservation state of porous materials, since the properties of the porous space affect water permeability.\\
+NMR techniques (MRI, NMR relaxometry, profile NMR) are widely used in the study of water-repellent materials and consolidating treatments since water is the main cause of damage because it is responsible of transporting aggressive pollutants that can cause corrosion. Moreover, freezing and thawing cycles of water may cause fractures inside the porous matrix.\\
+Water-repellent materials and consolidating treatments are studied indirectly detecting the presence of water in the sample \cite{settestone}. Since we acquire the signal of $^1H$ of water molecules, the porous sample undergoes to two main types of exposure to water: capillary absorption and water saturation.\\
+The former is performed by filter paper soaked in water and on which the sample is placed. The specimen starts to absorb water by capillarity (water imbibition). The latter provides for the sample to be placed under vacuum, pushed and saturated with water.
+By these methods the water enters into the porous matrix of the sample in order to perform the NMR analysis, for istance using MRI.\\
+MRI technique allows one to visualize the image and therefore the spatial distribution of $^1H$ nuclei of the water. According to the experiment one can use different methods for the acquisition and the filtering of the signal (e.g. $T_1$, $T_2$ and Diffusion weighted imaging). The pixel brightness of a MR image usually indicates the amount of water because the signal acquired in each pixel is proportional to the quantity of $^1H$ in the voxel (the three-dimensional counterpart of the pixel). \\
+The most relevant MRI applications to water-saturated porous stones before and after applying protective and consolidating treatments have been reported in \cite {settestone, quattrostone, quattro, trestone}. In the study of  G.C. Borgia et al. (2001) \cite{trestone} , MRI has been applied for the evaluation of the performance of the Paraloid B72 (PB72) , a hydrophobic polymer widely used for the conservation of monumental buildings and other stone artifacts. By this technique it has been possible to visualize the water diffusion in a treated Pietra di Lecce Stone and then indirectly the spatial distribution of the polymer in the rock. After the treatment with PB72, the capillary water absorption through the untreated face of the samples was performed and images were acquired after 20 min, 1h, 2h, 3h, 24h and 7 days of exposition to water. As shown in Figure \ref{MRI:1}, the presence of the polymer reduces the water uptake into the stone. In fact, after 7 days of water imbibition, it can be seen a loss of hydrophobic activity since water is now present in all the sample. That may be due to a loss of adhesion of the product to the pore walls caused by the liquid water insertion between the stone surface and the water-repellent film or due to the ageing of the polymer. To verify which one might be the cause wetting-drying cycles were performed. 
+The wetting-cycle consists in the performing of: water capillary absorption, saturation under vacuum, and capillary water absorption again . The distribution profile of the polymer, visible in figure \ref{MRI:2}, shows that the reduction of the hydrophobic activity is already visible after one cycle, and so it is probably due to a loss of adhesion of the product to the pore walls caused by the liquid water insertion between the stone surface and the water-repellent film, rather than to ageing of the polymer\cite{trestone}.
+Thanks to MRI interesting considerations can be done. The MR-images are a powerful tool for quantitative analysis. As a matter of fact there is a correlation between the signal intensity and the water mass. The presence of Paraloid B72 reduced the water uptake. In fact from the brighter areas we can deduce that there is a greater concentration of water whereas in dark areas, there is no/low signal, so we can deduce an absence of water. In this way it is possible to understand how the hydrophobic treatment is effective in reducing water absorption and also how much the polymer succeeds in penetrating into the sample.
+
+
+\begin{figure}[h] \label{MRI:1}
+\centering
+\includegraphics[width=0.9\linewidth]{StoneMRI1}
+\caption{ Pietra di Lecce sample, before (a) and after (b) treatment with PB72. Selected from \cite{trestone}.}\label{MRI:1}
+
+\end{figure}
+
+
+\begin{figure}[h] 
+\centering
+\includegraphics[width=0.7\linewidth]{StoneMRI2}	
+\caption{MR-images after zero (a), one (b) and three (c) wetting-drying cycles. The images have all been kept after 24 h of capillary water absorption. Selected from \cite{trestone}.}
+\label{MRI:2}
+\end{figure}
+
+
+MRI has been demonstrated to be a valid technique for monitoring the porous structure and its interaction with  water  in porous materials. Furthermore, this capability has been tested for the evaluation of the hydrophobic effect and spatial distribution of compounds to be used as protective treatments. \\
+Other examples of such application of MRI exist in literature. In a study of Mara Camaiti et Al. (2017) \cite{quattrostone}, MRI has been used to evaluate the performance of non-wetting coatings on porous surfaces. The method is similar to the one just described before. Thanks to the high spatial resolution and high contrast of MR-images it is possible to monitor the water uptake during intervals of time in the presence of different hydrophobic polymer used to protect the stone surface. \\
+MRI allows one to perform measurements only in laboratory by a tomograph, instead NMR relaxometry technique results to be more versatile. In fact, NMR relaxometry measurements can be performed  by both laboratory  and portable devices. This is one of the main advantage for the investigation of the Cultural Heritage assets, since a great number of artifacts cannot be removed or transferred from their own location because of their dimension and/or their high artistic value.\\
+By the study of NMR relaxation time distributions the characterization of the pore-size distributions of a porous materials can be obtained. For example, as reported in \cite{due}, relaxation time distributions obtained by laboratory and portable devices are investigated to characterize the pore-size distributions of building materials coming from the Roman ruins of the Greek-Roman Theatre of Taormina. To validate the interpretation of relaxation data in terms of pore-size distribution, a comparison of the results of laboratory and in-situ NMR experiments with the results of MIP techinque has been evaluated. Building materials are constituted by porous media able to absorb water that can influence many of their macroscopic features (water can transport mineral salts within pores and surfaces or it may carry pollutants into pores from external environment triggering corrosion processes that can modify the properties of the material). For these reasons, the study of their pore-size distribution and water absorption properties is a fundamental step for evaluating the state of conservation of these materials and, especially in the case of Cultural Heritage items, planning correct restoration procedures.\\
+ The experimental methodologies, used to estimate the pore-size distribution, generally give different information because of their different operational definitions: NMR relaxation furnishes indications about the pore-size distribution (by means of the relation $T_{1,2} \propto V/S$) whereas MIP gives information on the distribution of pore-entrance channel sizes (pore throats).\\
+\begin{figure}[h] 
+
+\centering
+\includegraphics[width=0.8\linewidth]{relaxometry-MIP}
+\caption{(a) $T_1$ distribution functions for the small cylindrical plugs, mortar1 and mortar2. Data have been acquired by standard NMR relaxometer (open symbols) and portable device (full symbols). (b) Pore channel radii distributions obtained with MIP technique for plugs mortar1 and mortar2. Selected from \cite{due}. }\label{relaxometry-MIP}
+\end{figure}
+In Fig. \ref{relaxometry-MIP}a. the distribution of relaxation times for different types of mortars are shown. NMR Data show differences between the $T_1$ distribution of the mortar1 and mortar2 samples. The former is characterized by a peak at very short relaxation times, between 0.1 and 10 ms, and by a tail at longer times that should correspond to the presence of high $S/V$ pores. Instead for the $T_1$ distribution of the latter there is a peak ranging from few ms to about 1s that reflects the presence of larger cavities. The single-sided $T_1$ distribution of a large sample of the mortar, shows the structural heterogeneities by the presence both of a peak at short relaxation time and a wide tail at longer times \cite{due}. \\
+In Fig.\ref{relaxometry-MIP}b. MIP data confirm that the differences between the $T_1$ distributions obtained with NMR. In the mentioned study, the comparison between MIP and $T_1$ relaxation data, proves that the highly inhomogeneous field of the mobile device does not affect the data. The case of the $T_2$ relaxation time is a little more complex instead. In Fact, because of diffusion of $^1H$ nuclei of water, the dephasing of the spins due to a gradient of magnetic field can be dominant. This effect, with increasing values of t, can produce a shift of the signal to values shorter than the real ones. For values of t too long or for a too strong field gradient, the effect of diffusion can prevail over the $S/V$ ratio, losing crucial information. Finally we can say that the analyzes performed using $T_1$ give correct information even when $T_2$ is unable to do. This condition occurs especially when ferromagnetic mineral impurities are present into the sample. In summary, data provided by the Single Sided-NMR are valid for obtaining information on porosity and can replace a destructive and invasive technique such as the MIP.\\
+ We can conclude saying that NMR relaxometry techniques, either traditional or based on the use of a mobile device, offer a suitable tool to investigate and to evaluate pore-size distribution giving good results as the data matched very well with the MIP technique\cite{due}.\\
+By performing relaxometry it is possible to characterize the pore space structure on several points of view. In fact additional information can be obtained combining relaxation and imaging. For example if one consider two voxels with the same porosity but different $S/V$ ratios of the pore space, the signal intensity that corresponds to the amount of water in the pore space is the same, but the relaxation times of the $^1H$ nuclei will be different. A better understanding of pore space structure can be achieved through relaxation tomography, in order to plan more appropriate conservation and restoration procedures of cultural heritage items. This is what has been reported in a recent study of M.Camaiti et Al.\cite{quattro}. Decayed marble sampled from the façade of the cathedral of Santa Maria del Fiore in Florence has been studied. The continuous exposure to rainwater and the characteristic morphology of the object has determined a not uniform alteration of the porous matrix. Figure \ref{relaxationmap} shows a relaxation time map, obtained by acquiring the image for ten different delay times ($\tau$) in a saturation recovery sequence. The regions more exposed to the rain were clearly those more damaged. The greater the porosity, the greater the average pore sizes, giving a clear picture of the decay induced by water.
+\begin{figure}[h]
+
+\centering
+\includegraphics[width=0.7\linewidth]{relaxationmapcolori1}
+\caption{$T_1$ relaxation map of an internal slice of a decayed marble sample from the cathedral of Santa Maria del Fiore in Florence. The relaxation time of each pixel is obtained by best fit to an exponential function of the signal intensities of that pixel in the ten images.}\label{relaxationmap}
+\end{figure}
+
+Anyway It must be noted that, as well as for the MIP, also for conventional unmovable NMR instrumentation there is the request of collecting samples from the object. The development of portable NMR (Such as NMR-MOUSE) devices allows one to overcome this difficulty. The non-destructiveness of the unilateral NMR analysis is of particular value when historical objects are to be examined. One of this cases is reported in \cite{seistone}. In a cryptoporticus at Colle Oppio in Rome, stone bricks which appeared very wet in the surrounding wall of an ancient Roman fresco, were investigated. Approaching the NMR-MOUSE to the precious fresco to a distance of about 1 mm,  the relaxation time $T_2$, without touching the wall, was measured. The wet fresco showed high signals at both short and long $T_2$, revealing that small and large pores were filled with water. The brick wall supporting the fresco gave similar results, in particular when considering that the bricks have a pore size distribution different from the fresco material. On the other hand, the bricks in a dryer part of a different wall of the cryptoporticus showed low signal at long $T_2$ , denoting a low amount of water in the largest pores. The acquired signals were analyzed by inverse Laplace transform to get a distribution of relaxation times. As we can see, in figure \ref{Cryptoporticus}, the distribution of relaxation time gives us informations on the presence of water and the pore size for the different zones of the wall. Without the use of a mobile device it would have been necessary to collect samples of the bricks in order to analyze them in laboratory. Instead the Single-Sided NMR turned out to be a non-invasive and non-destructive technique to carry out such analyses even considering the preciousness of the artifact belonging to cultural heritage. 
+\begin{figure}[h] 
+\centering
+\includegraphics[width=0.5\linewidth]{Cryptoporticus}
+\caption{Pore-size distributions from the distribution of relaxation times derived by inverse Laplace transformation of experimental magnetization decays. Selected from \cite{seistone}} \label{Cryptoporticus}
+	\end{figure}
+	
+In conclusion, summing up, we can surely say that both relaxometry and imaging are important techniques able to study porous materials such as stone. Thanks to NMR the porous media can be studied by a wide range of techniques. By imaging we can make qualitative considerations thanks to high spatial resolution, that allows us to study the porosity of the sample and to see the water uptake inside the porous structure useful to study the effectiveness of protective and consolidating treatments. By relaxometry it was possible to obtain the distribution of relaxation times for the characterization of the pore-size distributions inside the examined sample. Moreover thanks to portable devices, it was also possible to analyze items of high historical value and of any size, directly in situ in a non-destructive and non-invasive way.
+
+\section{Fresco and wall painting}
+
+The fresco is an ancient pictorial technique of wall painting that consists in applying pigments on fresh plaster. Frescos consists of three main elements: the support, made of stone or brick; the plaster that is the most important part and the color that must be applied to the still wet plaster (that's why "fresco"). 
+Sometimes Fresco are also called Wall paintings but in general they are not the same things because wall painting can be done on dry-plaster using binding medium, such as egg, glue or oil to attach the pigment to the wall.
+However, since the frescos and wall paintings are made of porous materials that are continuously exposed to degradation processes caused by water, humidity, atmospheric pollutants, the conservation and restoration require specific techniques and special treatments\cite{unofresco}. \\
+Thanks to the development of portable devices, the NMR can be used to investigate frescos and more in general wall paintings in a non-invasive and non-destructive way. Specifically, the use of NMR is linked to the detection of water in the artifact. Water, as we know, is a cause of widespread degradation for masonry materials, especially those belonging to the field of Cultural Heritage. This is true for the frescos for which in addition to the support is added the vulnerability of the surface. In this field the most used NMR instruments are the Single-Sided NMR devices (such as NMR-MOUSE and its brothers) which allow by several measurements to cover entire surfaces in a non-invasive way without collecting any pieces of the artifact. Moreover thanks to the high-precision lift, depth profiles and  maps of moisture distribution, useful to determine the source of dampness, can be obtained.\\
+Such applications are reported in \cite{trefresco}, where unilateral NMR ‘‘ProFiler’’ from Bruker Biospin, which is a variant of NMR-MOUSE, has been used to monitor the moisture content in the 16th century wall painting of Serra Chapel in the ‘‘Chiesa di Nostra Signora del Sacro Cuore’’, Rome. Measurements of relaxation times were performed on a matrix of several points to cover the entire surface. In order to facilitates the procedure, the wall painting has been divide into Panels and Monochromes. The distribution of relaxation times was then obtained by numerical inversion with a proper software. To show the NMR data was chosen a contour plot representation, that is a  bi-dimensional representation of a three-dimensional surface graph, where x and y are the coordinate of the strip of the area of the painted surface and z is the the $M_0$ value of the signal which as we know is proportional to the $^1H$ proton  density of water. In this way the contour plot is used to create the distribution map of the moisture content in the wall painting as showed, for a part of the wall painting surface called Monochrome 4, in Figure \ref{moisturemap1}. A gradient of color has been used for representing the moisture content: the red is linked to a really low water content, instead the blue color is associated with an high water content.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Moisturemap1}
+	\caption{Distribution map of the moisture obtained for Monochrome 4.Selected from \cite{trefresco} }\label{moisturemap1}
+\end{figure}
+These kind of maps are very useful for quantifying the moisture content at a certain distance from the surface. Similar maps of temperature/humidity can be obtained also through other techniques such us Infrared Termography (IRT). However with mobile NMR devices it is possible, to change the distance of the sensitive volume from the surface. In this way, moisture maps at different depth levels can be obtained. A similar case is reported in \cite{quattrofresco}. A Single-Sided NMR instrument has been used to  study a medieval, very precious and markedly deteriorated wall painting located in the second hypogeous level of St. Clement Basilica, Rome. The results of the experiments were two moisture distribution maps at depth of 0.1 cm and 0.5 cm, showed in Figure \ref{moisturemap2}. As can be seen from the figure \ref{moisturemap2}, there is a clear difference between the two profiles that can be falsely interpreted. In fact to understand this map, the state of conservation of the wall painting as well as the environmental conditions must be taken into account. The map obtained at about 0.1 cm of distance gave the informations of the distribution of water, due to the presence of highly hygroscopic salts, which were sensitive to the high environmental relative humidity. Instead the map obtained at 0.5 cm into the plaster gave informations about the route of the rising damp.
+   In conclusion both the maps of moisture obtained at different distances gave detailed and complementary informations to study in a non-destructive and non-invasive way, the moisture content and its effect on the wall painting, not achievable without NMR, in order to  plan and perform the best restoration work. The use of NMR is essential for a complete investigation tool, together with other characterization and/or monitoring techniques.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{moisturemap2}
+	\caption{Map of the distribution of the moisture obtained using the 1- mm probehead. b) Map of the distribution of the moisture obtained using the 5-mm probehead. 
+Selected from \cite{quattrofresco}} \label{moisturemap2}
+\end{figure}
+ 
+Non-destructiveness, non-invasiveness and portability encourage the use of NMR technology to study historic walls and frescos in order to obtain depth profiles for analyzing the various levels and their thicknesses. In Villa Palagione, belonging to the Medici dynasty, depth profiling of the paint layers of an hidden fresco has been carried out by portable nuclear magnetic resonance\cite{cinquefresco}.
+In order to perform the measurements NMR-MOUSE PM10 with a 5 mm spacer inserted between the magnet and the rf coil was used.
+In this way the spacer enhanced the instrument sensitivity by moving the coil closer to the sensitive volume but reducing the maximum depth achievable from 10 to 5 mm. 
+Two depth profiles were measured in two different points in dry condition. Then a profile was measured after spraying the wall with a light layer of water, in order to compare their trend in different moisture conditions. 
+This is because the different ability to absorb water from the different materials used for the layers allows us to distinguish the layers themselves. In addition the water can be classified according to the mobility of the protons in: free, confined and bound water. In particular, the bound water is closely linked to the material since the water molecules have a strong electrical polarity, ie there is a positive charge very strong on one side of the molecule and a strong negative charge on the other. This causes the water molecules to bind to each other and to other charged surfaces. Each material therefore has a capacity to bind to water differently. From this assumption we can understand how to interpret depth profiles. 
+As you can see in Figure \ref{villapalagione} in dry conditions the signal is rather weak, and it is mainly due to the bound water, which has less mobility and therefore a faster relaxation. In wet conditions the signal is higher due to the presence of a light layer of water sprayed on the surface and therefore to the presence of more mobile water protons. In both cases, however, it is possible to see a rather regular trend of the various peaks with increasing depth. In conclusion from the obtained depth profilies we can draw information on the thickness of the various layers hidden under the surface as each layer has absorbed a different amount of water visible from the progress of the signal as a function of depth and since each material has a different affinity to bind to water, we can say that the various peaks correspond to different materials and therefore different layers. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{villapalagione}
+	\caption{Depth Profiles across 3 mm depth into a wall with several paint layers and a photograph which shows the different paint layers of the wall.Selected from \cite{cinquefresco}} \label{villapalagione}
+\end{figure}
+
+A further study similar to the previous one has been carried out involving Single-Sided NMR to study a restored wall painting “La Madonna della Carcere” from the Fortezza Medicea in Volterra\cite{cinquefresco}. The painting had been detached from the wall by a previous restoration procedure using the “strappo” technique, that consists in removing the intonaco by the application of linen fabric embedded in animal glue or arabic gum binders. The painting is then detached from the arriccio layer (a rougher layer underneath the intonaco layer present in wall paintings as a preparation layer) and  subsequently the intonaco layer is  glued from the canvas to a support usually made of wood with specific adhesives\cite{cinquefresco}. Thanks to careful recording and special brushstrokes it was possibile to distinguish original painting from the restored areas. By NMR-MOUSE (PM10) in the 5 $mm$ spacer set-up, depth profiles of different zones, were obtained. In Figure \ref{madonna} the depth profiles of the relative areas are shown. In this case, given the different capacity of the different materials to absorb water of which the artifact is composed, the amplitude of the signal is proportional to the content of the bound water, ie of the water bounded in the material itself through hydrogen bonds. Let us recall also that the bound water is associated with the shortest component of relaxation times due to its lower mobility compared to that which may have water confined in the pores spaces. As you can see on the left of Fig.\ref{madonna}a there is a steep slope of the signal amplitude due the the organic adhesive used to attach the fresco to the support. At about 4 mm of depth the signal is very low due to a low proton density in the mortar layer. The trend is the same for the gold and the neck areas, but the red garment shows a decrease attributed to a different levels of bound water. The profiles of the original gold and the neck match quite well, indicating that no adhesive or organic binder were used. For the red garment the restored part gave about the same results of the original areas indicating again the absence of adhesive or organic binder .   
+\begin{figure}[h]
+	\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth]{madonna1} 
+\caption{}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth]{madonna2}
+\caption{}
+\end{subfigure}
+\caption{photographs of the areas where measurements were performed and depth profiles at the relative areas. Selected from \cite{cinquefresco}} \label{madonna}
+\end{figure}
+
+In conclusion we can surely say that thanks to these studies NMR can be considered a powerful tool for analyzing the layer structures of frescos and in general wall paintings. Above all Single-Sided NMR has proved to be an instrument able to analyze the various levels, detecting the moisture content, even at different depth, in a non-destructive and non-invasive way. Moreover, the capability of in-situ measurements allows one to analyze precious and of any size artifact of cultural heritage. Finally the detection of water, free confined or bounded, makes possible investigations on several points of view, giving informations on the moisture uptake but also on the different organic substance used for the restoration and/or conservation treatments. 
+
+\section{Paint}
+A painting is technically the product of the application with a brush of various pigments on a support such as paper, wood or more commonly the canvas. Most of the pigments are not soluble in water, they need a binder, which can be a vegetable gum, an oil, an egg yolk. The binder allows one to change the viscosity of the color (paint layer) and its capability to adhere to the support. The surface of the substrate, on which the pigment is applied, must be prepared with a ground layer usually made of animal glue and gypsum\cite{unopaint}. Furthermore, paintings are often coated with a varnish containing oil and/or plant resins. Once applied, these adhesives change the properties of the support, which is by nature a porous medium and, especially the canvas, tends to exchange vapor towards the ground layer so the presence of adhesives can lead to a local increase in humidity\cite{duepaint}.\\
+Many conservation treatments involve exposing paintings to moisture for varying periods of time. In order to control the potential risk during these treatments and to better understand the interaction between the components of the paint and the environmental humidity, there are many experimental techniques that make possible to understand and quantify the distribution of humidity under different conditions in each layer. Both nuclear magnetic resonance and X-ray radiography are among the most used techniques to monitor the level of moisture in cultural heritage artifacts. While X-ray radiography is not very sensitive and is mainly useful for measuring capillary absorption and high volumetric moisture content, NMR is more sensitive due to the ability to detect the signal of $^1H$ water nuclei. Moreover Single-Side NMR devices allow one to perform depth profiles of the paint, in order to better understand the behavior of each layer - in particular the moisture uptake since the medium is porous - when exposed to high humidity conditions.\\
+  For instance, in a study reported in \cite{duepaint}, it was possible to monitor moisture uptake in the ground and paint layers by NMR. In this case, two different kind of Single-Sided NMR were used: NMR-MOUSE PM-5 (Magritek, Germany) and the GARField(in-house set-up). The peculiarity of the latter are the electromagnets whose parabolic-shaped pole tips are able to create a local gradient G of 41 T/m on top of the $B_0$ magnetic field\cite{duepaint}. This produces the signal acquisition from different depths as it changes the resonance frequency of the nuclei with a resolution of $5\mu s$. Therefore the depth profile is obtainable in a single measurement where the NMR-Mouse needs more measurements in order to reduce the signal-to-noise ratio\cite{duepaint}.\\
+  The NMR-MOUSE has been used to monitor the moisture uptake during the absorption through the paint layer by a prolonged contact with the water. This allows one to better understand parameters such as the saturation moisture content of the layers and the permeability of the upper layer, even if it is not representative of the common practice. On the other hand, GARField allowed to measure the samples made of ground and oil paint layers only. First the specimen was measured dry, in order to have a reference, then during the absorption of moisture from a column of deionized water or PEG solution on top of the oil paint, and finally during air-drying.\\
+  In Figure \ref{dueprofilimouse} data of the moisture absorption through the paint layers measured by NMR-MOUSE are shown. Data intensities are normalized so they can be interpreted as volume fractions of water. On the top of the right side in the absorption profiles, we can see a net increase of the signal that corresponds to the edge of the water column on top of the sample, and does not reflect the moisture uptake in the sample. In fact it is not present in the drying profiles, where the sample is exposed to lab conditions\footnote{With a RH of about $50\%$} for eight hours. The profiles reflect the uptake only for the canvas and the ground layer, because the spatial resolution needed to reveal the processes occurring in the oil paint is not sufficient.
+  
+  \begin{figure}[h]
+  	\centering
+  	\includegraphics[width=0.9\linewidth]{dueprofilimouse}	
+  	\caption{Moisture profiles during absorption and drying obtained with the NMR Mouse. The time step between two subsequent profiles is 41 minutes (final absorption signal recorded after 14.5 hours). Selected from \cite{duepaint}}\label{dueprofilimouse}
+  \end{figure}
+  
+  
+  
+  
+  
+  The GARField, on the other hand, offers sufficient resolution to measure a sufficient number of points inside the oil paint and ground layers. In Figure \ref{Garfield}a data of the dry profiles and wet profiles after two hours of contact with the liquid are shown. We can see, that when the paint is exposed to PEG solution the moisture uptake is reduced respect to the exposure to water. In Figure \ref{Garfield}b it is shown the moisture uptake of the ground and the oil paint layer after 68 hours of water absorption. The major uptake of moisture is concentrated on   the ground layer, as we can see on the left side of profile instead the oil paint layer results to be a transition zone with the surface. 
+  
+   \begin{figure}[h]
+
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth,, height= 0.8\textwidth]{PEG} 
+\caption{}
+
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth, height= 0.8\textwidth]{68h}
+\caption{}
+
+\end{subfigure}
+ 
+
+
+\caption{ a) GARField NMR intensity profiles of the ground and oil paint set-up obtained when dry (tick line) and after two hours of contact with water (thin line) (left) or a PEG-solution (right). b) Moisture uptake profiles during a 68-hour absorption experiment on a ground and oil paint sample. Selected from \cite{duepaint}}\label{Garfield}
+\end{figure}
+
+  
+  
+  It is good to reiterate, in the light of these results, that the NMR is a very useful technique to better understand the behavior of the main components of the paint and the environment in the presence of water which is the main degradation agent for porous material. Such kind of investigations are complementary for the restorers which can carry out the restoration and the conservation of cultural heritage artifacts in the best way. In fact, the knowledge of the porous structure and the water uptake in each layer, makes easier for the restorer the choice of the protective compounds or cleanser to apply due to avoid damages to the artifacts itself.\\
+The knowledge of the layer structure (stratigraphy) of the paint provides also informations on the working practices and techniques used by the artist and, of course, helps in selecting correct and suitable conservation and restoration procedures. Thanks to the NMR-MOUSE it is possible to show the amplitude of the NMR signal as a function of the depth obtaining a profile. This approach allows one to recognize the different layers of the painting, their relative thicknesses and composition in a non-destructive and non-invasive way.\\
+A similar case is reported in \cite{quattropaint}. Single-Side NMR has been used to analyze the "Adoration of the Magi" (1470) by Perugino. From depth profiles it was possible to recognize the various layers of the painting from the different initial amplitudes of the signal measured in the indicated points since the initial signal amplitude is proportional to the number of water protons in the sensitive volume. This is  because each layer is made of a different material, so containing a different amount of water. In particular of bound water which depends on the material itself because of the hydrogens bonds. Plotting the signal as a function of depth and seeing how the amplitude change through the depth we can get information on the thickness of the various layers. So the thickness of the various signal peaks will be associated with the thickness of the layers which are clearly composed of different materials. The results of the experiment were depth profiles as shown in Figure \ref{adorazionemagi}. Depth profiles were obtained for two different point of the paintings, and they show that the composition of the layers under the painting is not the same. In fact, at 1.0 mm of depth the black peak is larger than the red one, suggesting the presence of a thicker layer, probably made of canvas and glue.\\
+It is interesting to note that no sample has been collected from the painting, and such kind of measurements can be performed directly on the painting surface approaching the portable NMR device without touching the artifact. This feature allow to study also paintings of high artistic value in a non-invasive and non-destructive way.
+\begin{figure}[h]
+	
+
+
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth,, height= 0.8\textwidth]{adorazionemagi} 
+\caption{}
+
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth, height= 0.8\textwidth]{depthprofile}
+\caption{}
+
+\end{subfigure}
+
+
+\caption{Photo of “Adoration of the Magi”(1470) by Perugino and Depth profiles at the two marked positions revealing differences in the thickness of the textile layer.Selected from \cite{quattropaint}}\label{adorazionemagi}
+\end{figure}
+
+The use of NMR is not only related to the stratigraphy but it is also exploited to monitor the effect of cleansing treatments of paintings, as we have foretold above. In the past it was very common to use organic substances such as egg white, animal or vegetable glue, linseed oil etc\dots to fix the pigment. These materials, when they are subjected to degradation processes, must be removed with water and when necessary, with a water solution containing solvents such as ammonium carbonate. Depending on the type of solvent and its viscosity, there may or may not be a change in moisture uptake. An important piece of information useful to the restorer, is the knowledge of the degree of moisture in the pictorial film after different cleansing treatments.Thanks to the non-invasiveness and the possibility of making in-situ measurements and depth profiles, the NMR MOUSE turns out to be the most suitable instrument for this type of investigation\cite{exseifresco}.
+In these cases the relaxation time examined is $T_2$. The main reason is that the $T_1$ measurements are extremely longer to perform than those of $T_2$. In fact the acquisition time of the signal can last many hours.\\ 
+ The relaxation time $T_2$ is related to the mobility of the protons. For example, the protons in the dry binder of paint layers have a short $T_2$ due to bound water, whereas liquid water has a long $T_2$. Its initial amplitude provides the proton density, which is proportional to the moisture content. Consequently it is possible to distinguish and identify the changing of moisture uptake by depth profiles through the paint layer using different kind of solvents, in order to chose the proper restorative treatment\cite{exseifresco}.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{solvents}
+	\caption{Moisture depth profiles through paintings. Selected from \cite{exseifresco}}\label{solvents}
+\end{figure}
+
+Finally we can say that the NMR has proved to be very versatile in conducting analysis on the paintings. The versatility of single-sided devices has resulted in the ability to get different types of information. On the one hand, the stratigraphy, thanks to the depth profiles, has given us information on the thickness of the various levels in a non-invasive and non-destructive way, without the need to collect samples. On the other hand, the possibility of studying the behavior of porous media, used as a support such as canvas, when exposed to conditions of high humidity. In this way the restorer can be helped in choosing the best treatments for the preservation, protection or cleaning of the artifact.
+
+
+
+
+
+
+\section{Wood}
+
+Wood is a material that has played a large role in human activity since the past. The use of wood involves a myriad of products, from agricultural applications, to the construction of houses, boats, bridges and many others. The same is true in the field of cultural heritage. In fact we find wood in the construction of frames, sarcophagi, supports for painting, sculptures, musical instruments and so on.\\
+Through photosynthesis, a tree produces the sugar glucose. Long chains of glucose form cellulose. Cellulose molecules combine to form elementary fibers, which in turn are grouped into bundles called microfibrils. These microfibrils constitute the major structural component in cell walls and play an important role in the wood-moisture relationship\cite{duewood}.\\
+Water in wood takes two form: confined water and bound water( Figure \ref{wood} ). Confined water exists as liquid in cell cavities (lumens); Bound water is attracted to and held between microfibrils in the cell walls by hydrogen bonding\cite{duewood}.
+
+\begin{figure}[h]
+
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\textwidth, height= 0.9\textwidth]{freewater} 
+
+
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth, height= 0.9\textwidth]{boundwater}
+
+
+\end{subfigure}
+ 
+
+
+\caption{Confined water is found in cell cavities, called Lumens; bound water is held between microfibrils in the cell wall. Selected from \cite{duewood}}\label{wood}
+\end{figure}
+
+
+
+Wood is hygroscopic. Therefore the attraction between dry wood and water is so strong that it is impossible to prevent moisture gain. Water easily binds with the cellulose fibers (microfibrils) in the cell wall.  So one can say that confined water may be considered like "more mobile" than the bound water because the latter is related to the structure of wood (it is involved in the microfibrils)  instead the former diffuses in small pores. For these reasons, the estimation of the water amount in the wood can be very useful, especially in the field of Cultural Heritage, the knowledge of how the quantity of water in the wood changes, in order to to do analysis on the conservation status of the artifact. \\
+Thanks to NMR non-invasive and in situ measurements are possible, in order to quantify the level of degradation of woody materials.\\
+An example of such application is reported in \cite{trewood}. A Single-sided NMR device (Bruker BioSpin) has been used to evaluate the state of conservation of an ancient wooden panel of an Egyptian sarcophagus (XXV–XXVI dynasty, Third Intermediate Period). 
+By analyzing the $T_2$ relaxation times, it can be established the separation of water into two main populations: cell water (bounded water) with a short $T_2$ value,  and lumen water (confined water) with a medium-long $T_2$ value\cite{trewood}. Since in degraded wood, due to a loss of bound and free water, the relaxation time $T_2$ is usually shorter than in well-preserved wood,  $T_2$ may be a suitable parameter to differentiate between wood in a good state of conservation and deteriorated wood.
+In Fig.\ref{sarcofago}c the decays obtained by applying a CPMG sequence on the inner and outer sides of the panel are shown in a semi-logarithmic scale. Areas on the inner side of the panel are indicated as IP4 and IP7, whereas areas on the outer side of the panel are indicated as HP2 and HP3. \\
+The multi-exponential trend is due to the presence of several components of relaxation time $T_2$. In fact in Fig.\ref{sarcofago}c the semilog-scale trend is not a straight line which would have been if there were only one component of relaxation time. It is interesting to note that the decays measured on the outer side were always faster than those measured on the inner side. That is quite reasonable as the outer side of the panel is more affected by degradation than the inner side. In fact, degradation reduces the presence even of the more confined water inside the wood, so the relaxation expected must be faster than the relaxation expected for well preserved wood where the amount of both cell and lumen water is higher. Since the wood of the panel was found to be yew wood, the $T_2$ results obtained on the inner and outer sides of the panel were compared with those measured on a piece of seasoned yew wood\cite{trewood}.
+Fig. \ref{sarcofago}d shows the distributions of the relaxation times obtained by applying the ILT to the decays reported in Fig.\ref{sarcofago}c .
+The transformed data show separated peaks due to the contribution of cell water(peak at shortest $T_2$ values) and lumen water(peak at longest $T_2$ values). The $T_2$ distribution measured in seasoned yew wood shows the presence of a third peak at long $T_2$ values, indicating two different environments for the lumen water. On areas of the inner and outer sides of the panel, the peak centered at the longest $T_2$ value was missing denoting therefore a lack of confined water. Also the amount of the more confined water of lumens in the inner areas was lower than the amount measured in seasoned yew wood.\\
+In the light of these results, in the sarcophagus panel there was a clear loss of lumen water for both the outer and the inner part and this behavior is caused by the aging process. Furthermore, for the external part, that has been more subject to degradation phenomena, there is also a decrease of the amount of the cell water confirmed by a reduction in the shorter values of $T_2$.\\
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.99\textwidth]{sarcofago}
+	\caption{c) CPMG decays reported in a semi-logarithmic scale measured on areas of the inner side of the panel called IP4 and IP7, and on areas of the outer side called HP2 and HP3, and on a seasoned yew wood. d) $T_2$ distributions obtained by applying a Laplace transformation to CPMG decays measured on seasoned yew wood, on areas IP7 and HP2. Selected from \cite{trewood} }\label{sarcofago}
+\end{figure}
+Unlike the previous experiment, where ancient wood has been compared with seasoned wood, in a study reported in \cite{quattrowood} ,  wood samples, ancient and modern ones, from the trussed rafter of the Castle of Valentino in Turin, XV century, were considered. Relaxation measurements were performed in-situ tanks to Single-Sided NMR.
+In this case the aim of the study was to study the effect of the cell water in the wood structure in order to compare the obtained results of the modern with the ones of the ancient sample.
+So the echo decays, obtained applying a CPMG sequence, regard the shortest component of the $T_2$ relaxation time in order to see the effect of bounded water. Data are shown in Fig. \ref{wood1} in a semi-logarithmic scale and they illustrate how the decay is faster in the ancient sample than in the case of the modern one. The decay is represented by a straight-line confirming that we are analyzing only one component of the relaxation.
+ The decrease in $T_2$ reflects a clear loss of bound water for the ancient sample. That seems quite reasonable since in modern wood there is more water, both bounded and confined, than the ancient one. In fact in modern wood, we can consider the microfibril more "fresh" due to more glucose. Ancient wood on the contrary , due to aging that leads to natural deterioration, presents a low moisture content.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\linewidth, height=0.35\linewidth]{wood1}
+	\caption{Echo decay of ancient, filled circles, and modern, empty squares, fir wood samples in semi-log scale.Selected from \cite{quattrowood} }\label{wood1}
+\end{figure}
+
+In conclusion we can say that degradation in wood is characterized by a decrease in the relaxation time $T_2$ observable by NMR-Relaxometry. This is true both for the short component linked to the bound water and for the medium-long component linked to confined water. In fact, we have seen that in ancient wood, due to aging and natural degradation, a loss of cell water and lumen water occurs. For both cases mentioned, Relaxometry measurements were perfromed in-situ, thanks to Single-Sided NMR which constitute a suitable, non-invasive and non-destructive device for assessing the state of conservation of items belonging to the Cultural Heritage.
+
+
+\section{Paper}
+The paper as we know it today makes its appearance a few years after the mid-nineteenth century. The papyrus was the first true ancestor of the paper. It seems that the use of it was already known in 3000 BC. By the way, the word Paper derives from the Greek chártes, "papyrus sheet". The papyrus was replaced gradually by the parchment, which was obtained by treating properly the skin of some animals. The origins of the name come from the city of Pergamon, in Asia Minor (present-day Turkey). The advantage of parchment consisted in a more resistance and manageability than papyrus, and lent itself to the formation of the first hand-written books (codes). The use of parchment continued in Europe until the 14th century, but near the year 1000 the use of paper was gradually establishing thanks to the trade with the East. In fact, China was the cradle of this new material. The Chinese were able to make it from various vegetable fibers, such as rice straw or bamboo cane. Tradition says that the secret of making paper has passed from the East to the West through the Arabs. The first masters of the Fabriano paper mills in the Marches, the first center in Italy to make paper starting from the from flax and hemp, were arabs. Only in the nineteenth century flax and hemp were replaced with rich wood pulp.\\
+The paper of high quality is made from about equimolar amounts of cellulose and water (in the ancient paper instead, there are more cellulose fibers). The morphology of the paper structure can simply be described as formed by water clusters surrounded by amorphous and crystalline cellulose domains\cite{duepaper}. The best condition of conservation for paper is when the cellulose possesses a high degree of polymerization and the amorphous domains surround small water pools. Changing the balance amorphous/crystalline cellulose it can cause damage to the paper texture and therefore deterioration processes can occur. In order to detect the alteration of the crystalline/amorphous cellulose balance and therefore to study deterioration processes of paper, the use of a Single-Sided NMR device turns out to be a powerful tool to perform in situ measurements to Cultural Heritage artifacts. As a matter of facts, by Relaxometry it is possible to measure relaxation times which in the case of paper -like in wood-  can be divided into two main populations: the former, due to the crystalline cellulose, is characterized by short relaxation times value; the latter, due to the amorphous cellulose, is characterized by medium/long relaxation times values. Relaxometric NMR methods have been really useful to evaluate the quality of paper and parchment as well. The most sensible parameter to study degradation, is the spin-spin relaxation time $T_2$.\\
+New and artificially aged parchments were studied by Single-Sided NMR in different relative humidity conditions, to investigate the effects of degradation on the relaxation time $T_2$ \cite{ottopaper}. Samples of aged parchment were obtained by exposing new parchments to \ang{80}C at by alternating $40\%$ and $80\%$ relative humidity for increasing times up to 32 days. In Figure \ref{parchment}, the relaxation times $T_2$ of the rigid (short) and amorphous phases (long) of the aged parchment as a function of the ageing time.  The amorphous component shows the most significant changes. In fact, from 2 to 8 ageing days the amorphous phase is characterized by lower $T_2$ values then the values obtained for the not treated parchment, while higher $T_2$ values are obtained at 16 and 32 days ageing. This trend is due to the structure complexity of parchment consisting of a matrix of collagen fibres and structural proteins. The reduction the amorphous phase after 2 ageing days can be interpreted in terms of a tighter packing of collagen fibrils due to thermally induced cross-linking \cite{ottopaper}. The increase instead could be assigned to a gradual increase of the primary peptide bonds cleavage within the collagen helix. The cleavage of polypeptide chains (promoted by high temperature and high humidity) competes with the process of formation of cross-links (promoted by Temperature treatment and low relative humidity) which leads to a progressive improvement in chain mobility as confirmed by the increase in $T_2$ for amorphous phase. On the other hand, the gradual increase in the short relaxation time suggests the appearance of structural disorder in the rigid phase, which denoted a gradual increase in $T_2$ \cite{ottopaper}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{parchment}
+	\caption{Changes in relaxation time $T_2$. Selected from \cite{ottopaper} }\label{parchment}
+\end{figure}
+As regard paper, degradation is a complex phenomenon that may be caused by biotic action of fungi and bacteria and/or chemical attacks. In chemical terms, the degradation of paper is concretely the conversion of fibrous and highly crystalline cellulose into a largely amorphous degraded material. Such transformation is the result of different, complex processes among which acid hydrolysis is the most important. Anyway, in all cases of paper degradation, a loss of water associated with a shortening of the  relaxation time $T_2$ is observed. In fact, a study of N.Proietti, D.Capitani et al.(2004) \cite{settepaper}, shows that after enzymatic attack, a net decrease of $T_2$ is estabilished. Artificial aging paper has been studied with both conventional $^1H$ NMR performed by the Spin Master2000 (Stelar,Pavia), and Single-Sided NMR performed by the Eureka Mouse (EM10). The relaxation times $T_2$ were measured with the CPMG sequence on untreated paper, paper oxidized for 48 h with 0.1M of $NaIO_4$ and  paper oxidized for 48 h with 0.4M of $NaIO_4$. Data are shown in Figure \ref{paper1} by Inverting the CPMG relaxation decays to get the relaxation time distribution. In both cases, the center of the distribution shifts to shorter $T_2$ values as the degradation of the sample increases.
+In conclusion, the shortening of the relaxation time $T_2$ can be observed both with conventional NMR as well as with Single-sided NMR devices since the experimental values obtained are in good agreement.
+
+\begin{figure}[h]
+
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth, height= 0.8\textwidth]{standardrela} 
+\caption{Standard relaxometer}
+
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth, height= 0.8\textwidth]{singlesidedrela}
+\caption{Single-Sided relaxometer}
+
+\end{subfigure}
+ 
+
+
+\caption{distributions obtained by inverting CPMG relaxation decays. (a) Untreated paper; (b) paper oxidized for 48 h with 0.1M $NaIO_4$; and (c) paper oxidized for 48h with 0.4M $NaIO_4$.Selected from \cite{settepaper}}\label{paper1}
+\end{figure}
+Historical paper, as well as part of the modern one, shows, even minimally, a content of paramagnetic impurities of different nature: natural derivation, manufacturing process origin, or due to the use of ink. In fact, ferrogallic ink was the most used in ancient paper. This ink penetrates deeply into the fibers of the paper, making it almost indelible. For the ease of production and its reduced cost it was used until the beginning of the twentieth century\cite{trepaper} . \\
+The impurities play an important role in the degradation of paper. They can change the balance of amorphous and crystalline cellulose , and, although in low concentration, those paramagnetic impurities may interpret a significant role in the NMR relaxation times. Therefore for a correct description of the data, the effects on the NMR relaxation, from ions of paramagnetic impurities must be taken into account\cite{duepaper}.  
+In particular, if we consider a certain matrix of impurities distant from each other $R_p$, after the RF $\pi$-pulse, we will create islands of spin polarization (ISP) of $R_1$ diameter, around the impurity centers that will make the signal non-captable because the resonance frequency of these ISPs will be different from that for the external magnetic field due to the paramagnetic field. Behind this theory there is a whole model whose implications/assumptions (such as $R_p$>>$R_1$ ) are reported in a study of C.Casieri et al. \cite{duepaper}, where NMR-MOUSE has been used to evaluate the relative populations of amorphous and crystalline cellulose of ancient paper of the  Codex Major, a 17th century manuscript. Four characteristic zones of the pages of the Codex Major were individuated to study the damage to paper structure: firstly, the edges of some pages (E zone) that had not been written, selected for the absence of spots or other visible damages; a second zone between page edges with dark shadow halo (S zone) and without any other apparent kind of damages; finally, the ink not crumbled (INC) and ink crumbled (IC)  areas. The most relevant results are shown in Figure \ref{paper2}. We can respectively see the Fit of the IR (inversion Recovery)  measurements for $T_1$ and the Fit for the CPMG measurements for $T_2$ of the different areas. The multi-exponential trend confirm the presence of the two component:  the Crystalline (shorter) and amorphous cellulose one(longer). In particular for the E zone, about the $46\%$ of magnetization is associated to the amorphous domains, while about $54\%$ to the crystalline ones which confirm the good state of conservation of the paper.The data of the S zones, which are probably richer in paramagnetic impurities than the E zones, show that both the shorter and the longer components of $T_{1,2}$ halve their values, even if the trend rests almost equal to that of the E zones. In the INC zones, where the concentration of paramagnetic impurities is also different, the relaxation components of $T_{1,2}$ for the crystalline and amorphous cellulose, remain in practice equal to that of S zones and so it does the ratio between the magnetization.
+The data of the IC zones, instead, show a different behavior. In fact the concentration of paramagnetic impurities is greater than in the INC zones, because the ink is more concentrated and therefore able to explicate a deeper acidic action . This means that the penetration of paramagnetic impurities in the cellulose fibers is more effective. it is evident that in the IC zones the ratio amorphous/ crystalline is modified: The shorter component (crystalline cellulose) rests the same as in INC, while longest one (amorphous) halves its value with respect to INC zones.
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.6\textwidth}
+\
+\includegraphics[width=0.9\linewidth, height=6cm]{irpaper} 
+\caption{Fit of the IR results}
+\end{subfigure}
+\begin{subfigure}{0.6\textwidth}
+\includegraphics[width=0.99\linewidth, height=6cm]{cpmgpaper}
+\caption{Fit of the CPMG results}
+\end{subfigure}
+\caption{Fit of the CPMG and IR results on the four different parts of the Codex Major pages: Edge (E), Spot (S), Ink Crumbled (IC) and Ink Not Crumbled (INC). In the inset of (a) there is is a detail which shows the behavior of relaxation in the IC zone. Selected from \cite{duepaper}.}\label{paper2}
+\end{figure}
+
+To conclude, the non-invasive measurements performed by the single-sided device, show great potentiality for the investigation of different kind of damages of paper. Whether or not paramagnetic substances were present in the paper, the NMR proved to be capable of quantifying the level of paper degradation through the acquisition of relaxation times. Furthermore, this was possible without collecting any samples once again highlighting the characteristic of mobile devices: the non-destructiveness.
+\clearpage
+\chapter{Conclusion}
+%\addcontentsline{toc}{chapter}{Conclusion}
+In this thesis NMR techniques have been applied to study porous systems belonging to the fields of cultural heritage.
+The main purpose was to demonstrate how NMR techniques, especially those performed with portable devices, in a non-invasive and non-destructive way, detecting the $^1H$ nuclei of water, represent a relatively new method of analyzing objects of great artistic value.\\ 
+At the beginning of this thesis, a general theoretical framework to understand the applications in the field of NMR in porous media is given. Methods such as relaxometry and MRI proved to be fundamental for the characterization of the porous structure, thanks respectively to the pore-size distribution provided by relaxometric analyzes and the high spatial resolution of the MR-images. \\
+So far, applications, in particular to stone, fresco, paint, wood and paper, have yielded interesting results as evidenced by the growing literature in the field of cultural heritage.\\
+As regard stone, which represents one of the most studied material in this field, MR-images proved to be a suitable tool for analyzing consolidating and protective compounds visualizing the water uptake thanks to the high spatial resolution. Relaxometric analysis provided informations on the pore-size distribution with both conventional NMR apparata and portable devices. Moreover combining relaxation and imaging, relaxation maps were obtained to have a better knowledge of the porous structure in order to plan the most appropriate conservation and restoration procedures.  \\
+Frescos and wall paintings, which are really delicate items, have been analyzed with non-destructive and non-invasive techniques thanks to the versatility of the Single-Sided NMR that can be performed directly in-situ to investigate the water content and moisture flux and to characterize the amount and the distribution of water in the different layers of the artifact through depth profiles.\\
+For the study of paintings, Single-Sided NMR could provide the stratigraphy of the painting without touching it and, more important, without collecting any piece of it. Another advantage of the NMR is the sensitivity to solvent uptake in paintings, enabling the optimization of solvent-based cleaning procedures for paintings.\\
+Wood and Paper, which are made of chains of glucose to form cellulose, have been analyzed by relaxometry to visualize how degradation phenomena affect the items. As regard wood, water can be found confined, in the small pores of the sample, or bounded, in the material itself. When degradation occurs a loss of confined and bounded water has been detected as confirmed by the comparison with the results obtained for ancient and modern samples. As regard paper, that is composed of a balance domain of crystalline and amorphous cellulose, by relaxometry it was possible to visualize how the balance is lost when degradation occurs in historical paper even if paper was affected by paramagnetic impurities.\\
+ Finally, we can say that the NMR has proven to be a powerful tool for conducting analyzes in the field of Cultural Heritage. Thanks to the versatility with which measurements can be made, detecting the $^1H$ nuclei of water, the NMR can be used together with other techniques or even when these cannot be performed because of the destructive nature of the methods. In fact, NMR can be performed both with conventional devices or with portable devices directly in situ without collecting samples in a non-destructive and non-invasive way. In this way it is possible to have a better understanding of the state of conservation, the causes of degradation of porous materials and also of new methods with the scope of lengthening the life time of the artifacts, for a correct safeguard of Cultural Heritage assets.
+
+
+
+
+\clearpage
+\printbibliography
+\addcontentsline{toc}{chapter}{\refname}
+
+\clearpage
+\thispagestyle{empty}
+\begin{center}
+	{{\Large{\textsc{ACKNOWLEDGEMNTS}}}} 
+\rule[0.1cm]{15.8cm}{0.1mm}
+\rule[0.5cm]{15.8cm}{0.6mm}
+\\\vspace{3mm}
+I would like to thank everyone who has contributed to this work.
+\\
+First of all, my parents and all my family, that with their tireless support, both moral and economic, allowed me to get here today.\\
+I particularly thank my uncles who have become a second family for me.\\
+I would like to thank all my friends and everyone else, for sharing this experience.\\
+I would like to thank Dr. Claudia Testa for the availability.\\
+Last but not least I would like to thank Dr. Leonardo Brizi, for the availability and precision shown to me throughout the drafting period. Without him this work would not have come to life.
+
+\end{center}
+\end{document}
