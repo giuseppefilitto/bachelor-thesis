@@ -13,19 +13,17 @@
 \usepackage{tabularborder}
 \usepackage{footnote}
 \usepackage{caption}
-\usepackage[sorting=none,style=numeric-comp,backend=biber]{biblatex}
-\addbibresource{Bibliografia.bib}
 \usepackage{siunitx}
 \usepackage{hyperref}
 \usepackage{newlfont}
 \usepackage{color}
 \usepackage{url}
 \textwidth=450pt\oddsidemargin=0pt
-
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-
 \usepackage[Lenny]{fncychap}
+
+
 \begin{document}
 
 
@@ -120,16 +118,10 @@ Anno Accademico \textcolor{black}{2018/2019}
 \clearpage
 \tableofcontents
 
-
-
-
-
-
-
 \clearpage
 \chapter{Introduction}
 %\addcontentsline{toc}{chapter}{Introduction}
-The aim of this work is to offer an overview of original NMR techniques for the study of hydrogenated fluids confined in porous media of interest for Cultural Heritage which, especially in Italy, represents a topic of great and extreme interest on the whole national territory. Indeed Italy has the largest Cultural Heritage in the world with over 3,400 museums, with about two thousand areas and archaeological parks and with 43 UNESCO sites\cite{dieci}.\\ 
+The aim of this work is to offer an overview of original NMR techniques for the study of hydrogenated fluids confined in porous media of interest for Cultural Heritage which, especially in Italy, represents a topic of great and extreme interest on the whole national territory. Indeed Italy has the largest Cultural Heritage in the world with over 3,400 museums, with about two thousand areas and archaeological parks and with 43 UNESCO sites ~\cite{dieci}.\\ 
 Understanding the state of conservation, the knowledge of the causes of degradation of materials, the development of new methods with the scope of lengthening the life time of the artifacts, are mandatory for a correct safeguard of Cultural Heritage assets. Monuments, statues, mortars, frescos, wood and many other materials are, as matter of fact, porous materials continuously exposed to environmental phenomena, to vapour and liquid water that can diffuse from the environment and give rise to degradation processes. For example, in the case of natural and artificial stones, water may produce dissolution of the binder and in general mechanical stresses. Also, acid corrosion can be caused by the uptake of pollutants dissolved in water. Moreover, paintings and frescos are made of a multi-layers structure with different materials and different behavior in relation to humidity. Therefore, it is of primary importance to have efficient diagnostic methods for evaluating the characteristics of the materials (including porosity, pore size distribution, connectivity), possibly in a non-destructive and non-invasive way, in order to plan the most appropriate procedure for the protection and the conservation of Cultural Heritage artifacts\cite{quattro}.\\
 Nowadays there are different techniques of physical and chemical interest that offer us the possibility to get information about characteristics and conservation status  of materials interesting for  Cultural Heritage purposes. Many techniques are used for pigment identification, including micro-Raman analysis, micro-Fourier-transformed infrared (FTIR) analysis and energy dispersive X-ray (EDX) analysis, which are some of the most suitable methods for this purpose\cite{sette}. Known and also widely used are non-destructive methods, connected with the use of:  X-ray radiation (radiography), ultraviolet radiation (UV fluorescence) and near infrared radiation (IR reflectography)\cite{otto}.\\
 These methods give possibility to reveal overpainted pictures, underdrawings, hidden signatures and therefore provide information about early composition, development and present state of an under-test artifact. Procedures for monitoring the restoration works on ancient building surfaces (i.e. application of protective films, water repellent, restoration of plaster etc..) include other techniques such as IRT (infrared thermography), Gravimetric tests, Scanning electron microscopy (SEM). Moreover a testing technique for the full-volume inspection of an object is the X-ray Computed Tomography (CT) which is able to give morphological and physical information on the inner structure of the investigated sample in a non-destructive way[9]. Although the use of the aforementioned techniques is well established in the field of Cultural Heritage, these are not always suitable for analyzing properly some artifacts. In fact, in order to perform analysis, such as micro-FTIR, micro-Raman spectroscopy, microanalysis by energy dispersive X-rays, for the characterization of the materials and pigments of artworks there is a need to collect sample pieces. Moreover in the case of paintings to identify the pictorial layers, the degradation and even to reveal the techniques of different artists, it is used to practise cross-sections and stratigraphies which are still nowdays among the most used techniques in the work of the museum scientist\cite{sette}.\\
@@ -178,7 +170,7 @@ A radio-frequency pulse consists in the application of an oscillating magnetic f
          \end{equation}
          \begin{figure}[h]
       	\centering
-      	\includegraphics[width=0.45\linewidth]{Spin2}
+      	\includegraphics[width=0.45\linewidth]{figures/Spin2}
       	\caption{Sketch of a Spin-echo pulse sequence}\label{Spinecho}
       \end{figure}
       \subsubsection{CPMG} 
@@ -190,7 +182,7 @@ A radio-frequency pulse consists in the application of an oscillating magnetic f
       
       \begin{figure}[h]
       	\centering
-      	\includegraphics[width=0.4\linewidth]{CPMG}
+      	\includegraphics[width=0.4\linewidth]{figures/CPMG}
       	\caption{Sketch of a CPMG pulse sequence}\label{CPMG}
       \end{figure}
       
@@ -208,7 +200,7 @@ A radio-frequency pulse consists in the application of an oscillating magnetic f
 
 \begin{figure}[h]
       	\centering
-      	\includegraphics[width=0.4\linewidth]{Saturationrecovery}
+      	\includegraphics[width=0.4\linewidth]{figures/Saturationrecovery}
       	\caption{Sketck of saturation recovery pulse sequence}\label{satrecovery}
       \end{figure}
 
@@ -227,7 +219,7 @@ where $\gamma$ is the gyromagnetic ratio, $I$ the spin of the nuclei, $K_B$ is t
 Depth profiles are then obtained plotting the extrapolated amplitude value for each step as function of the depth. That allows us to visualize the quantity of $^1H$ nuclei in order to better understand the thickness of the different layers inside the sample. In fact, you can quantify the thickness of each layer thanks to the amount of water present in it. Specifically, the water of a layer can be quantified according to the mobility of the $^1H$ nuclei in the material. As in each layer the material is different, there will be a different signal intensity due to a different mobility of the $^1H$ water nuclei. Therefore, by plotting the value $M_0$ of the magnetization as a function of depth, information on the thickness can be drawn by seeing how the value of the magnetization changes as the depth varies.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{depthprofile3}
+	\includegraphics[width=0.7\linewidth]{figures/depthprofile3}
 	\caption{Example of depth profile of a painting sample containing egg yolk binder with yellow pigment on a lineseed oil preparatory layer\cite{marmotti}.}\label{esempiodepth}
 \end{figure}
 
@@ -262,7 +254,7 @@ There is then a whole complex coding process, which gives us as a result the ori
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\linewidth]{kspace}
+	\includegraphics[width=0.8\linewidth]{figures/kspace}
 	\caption{Image obtained from the frequencies in the k-space. Selected from \cite{kspace}}\label{kspace}
 \end{figure}
 
@@ -306,7 +298,7 @@ In order to exploit the physical phenomenon of the Nuclear Magnetic Resonance an
 
 \begin{figure}[h]
       	\centering
-      	\includegraphics[width=0.9\linewidth]{mousepm10}
+      	\includegraphics[width=0.9\linewidth]{figures/mousepm10}
       	\caption{NMR-MOUSE PM10 mounted on a lift connected to a KEA II spectrometer.}\label{mousepm10}
       \end{figure}
 Single sided NMR devices, or sometimes Unilateral NMR, are compact, portable and designed for in-situ measurements. The necessity of in-situ measurements made the dimensions of magnets to be drastically reduced, thus the strength and 
@@ -343,11 +335,11 @@ This means that the distance between the sensitive volume and the coil also affe
 
 \begin{figure}[h]
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.89\linewidth, height=6cm]{MagnetsNMRMOUSE} 
+\includegraphics[width=0.89\linewidth, height=6cm]{figures/MagnetsNMRMOUSE} 
 \caption{sketch of NMR-MOUSE sensor}\label{magnets}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=6cm]{ProfileNMRMOUSE}
+\includegraphics[width=0.9\linewidth, height=6cm]{figures/ProfileNMRMOUSE}
 \caption{NMR-MOUSE}\label{NMRprofile}
 \end{subfigure}
  
@@ -368,12 +360,12 @@ Electromagnet Jeol is a in-house relaxometer based on an electromagnet controlle
 
 \begin{figure}[h]
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.89\linewidth, height=6cm]{Artoscan} 
+\includegraphics[width=0.89\linewidth, height=6cm]{figures/Artoscan} 
 \caption{}
 \label{fig:subim1}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=6cm]{jeol}
+\includegraphics[width=0.9\linewidth, height=6cm]{figures/jeol}
 \caption{}
 \label{fig:subim2}
 \end{subfigure}
@@ -408,9 +400,9 @@ The wetting-cycle consists in the performing of: water capillary absorption, sat
 Thanks to MRI interesting considerations can be done. The MR-images are a powerful tool for quantitative analysis. As a matter of fact there is a correlation between the signal intensity and the water mass. The presence of Paraloid B72 reduced the water uptake. In fact from the brighter areas we can deduce that there is a greater concentration of water whereas in dark areas, there is no/low signal, so we can deduce an absence of water. In this way it is possible to understand how the hydrophobic treatment is effective in reducing water absorption and also how much the polymer succeeds in penetrating into the sample.
 
 
-\begin{figure}[h] \label{MRI:1}
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.9\linewidth]{StoneMRI1}
+\includegraphics[width=0.9\linewidth]{figures/StoneMRI1}
 \caption{ Pietra di Lecce sample, before (a) and after (b) treatment with PB72. Selected from \cite{trestone}.}\label{MRI:1}
 
 \end{figure}
@@ -418,7 +410,7 @@ Thanks to MRI interesting considerations can be done. The MR-images are a powerf
 
 \begin{figure}[h] 
 \centering
-\includegraphics[width=0.7\linewidth]{StoneMRI2}	
+\includegraphics[width=0.7\linewidth]{figures/StoneMRI2}	
 \caption{MR-images after zero (a), one (b) and three (c) wetting-drying cycles. The images have all been kept after 24 h of capillary water absorption. Selected from \cite{trestone}.}
 \label{MRI:2}
 \end{figure}
@@ -432,7 +424,7 @@ By the study of NMR relaxation time distributions the characterization of the po
 \begin{figure}[h] 
 
 \centering
-\includegraphics[width=0.8\linewidth]{relaxometry-MIP}
+\includegraphics[width=0.8\linewidth]{figures/relaxometry-MIP}
 \caption{(a) $T_1$ distribution functions for the small cylindrical plugs, mortar1 and mortar2. Data have been acquired by standard NMR relaxometer (open symbols) and portable device (full symbols). (b) Pore channel radii distributions obtained with MIP technique for plugs mortar1 and mortar2. Selected from \cite{due}. }\label{relaxometry-MIP}
 \end{figure}
 In Fig. \ref{relaxometry-MIP}a. the distribution of relaxation times for different types of mortars are shown. NMR Data show differences between the $T_1$ distribution of the mortar1 and mortar2 samples. The former is characterized by a peak at very short relaxation times, between 0.1 and 10 ms, and by a tail at longer times that should correspond to the presence of high $S/V$ pores. Instead for the $T_1$ distribution of the latter there is a peak ranging from few ms to about 1s that reflects the presence of larger cavities. The single-sided $T_1$ distribution of a large sample of the mortar, shows the structural heterogeneities by the presence both of a peak at short relaxation time and a wide tail at longer times \cite{due}. \\
@@ -442,14 +434,14 @@ By performing relaxometry it is possible to characterize the pore space structur
 \begin{figure}[h]
 
 \centering
-\includegraphics[width=0.7\linewidth]{relaxationmapcolori1}
+\includegraphics[width=0.7\linewidth]{figures/relaxationmapcolori1}
 \caption{$T_1$ relaxation map of an internal slice of a decayed marble sample from the cathedral of Santa Maria del Fiore in Florence. The relaxation time of each pixel is obtained by best fit to an exponential function of the signal intensities of that pixel in the ten images.}\label{relaxationmap}
 \end{figure}
 
 Anyway It must be noted that, as well as for the MIP, also for conventional unmovable NMR instrumentation there is the request of collecting samples from the object. The development of portable NMR (Such as NMR-MOUSE) devices allows one to overcome this difficulty. The non-destructiveness of the unilateral NMR analysis is of particular value when historical objects are to be examined. One of this cases is reported in \cite{seistone}. In a cryptoporticus at Colle Oppio in Rome, stone bricks which appeared very wet in the surrounding wall of an ancient Roman fresco, were investigated. Approaching the NMR-MOUSE to the precious fresco to a distance of about 1 mm,  the relaxation time $T_2$, without touching the wall, was measured. The wet fresco showed high signals at both short and long $T_2$, revealing that small and large pores were filled with water. The brick wall supporting the fresco gave similar results, in particular when considering that the bricks have a pore size distribution different from the fresco material. On the other hand, the bricks in a dryer part of a different wall of the cryptoporticus showed low signal at long $T_2$ , denoting a low amount of water in the largest pores. The acquired signals were analyzed by inverse Laplace transform to get a distribution of relaxation times. As we can see, in figure \ref{Cryptoporticus}, the distribution of relaxation time gives us informations on the presence of water and the pore size for the different zones of the wall. Without the use of a mobile device it would have been necessary to collect samples of the bricks in order to analyze them in laboratory. Instead the Single-Sided NMR turned out to be a non-invasive and non-destructive technique to carry out such analyses even considering the preciousness of the artifact belonging to cultural heritage. 
 \begin{figure}[h] 
 \centering
-\includegraphics[width=0.5\linewidth]{Cryptoporticus}
+\includegraphics[width=0.5\linewidth]{figures/Cryptoporticus}
 \caption{Pore-size distributions from the distribution of relaxation times derived by inverse Laplace transformation of experimental magnetization decays. Selected from \cite{seistone}} \label{Cryptoporticus}
 	\end{figure}
 	
@@ -465,7 +457,7 @@ Such applications are reported in \cite{trefresco}, where unilateral NMR ‘‘P
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{Moisturemap1}
+	\includegraphics[width=0.7\linewidth]{figures/Moisturemap1}
 	\caption{Distribution map of the moisture obtained for Monochrome 4.Selected from \cite{trefresco} }\label{moisturemap1}
 \end{figure}
 These kind of maps are very useful for quantifying the moisture content at a certain distance from the surface. Similar maps of temperature/humidity can be obtained also through other techniques such us Infrared Termography (IRT). However with mobile NMR devices it is possible, to change the distance of the sensitive volume from the surface. In this way, moisture maps at different depth levels can be obtained. A similar case is reported in \cite{quattrofresco}. A Single-Sided NMR instrument has been used to  study a medieval, very precious and markedly deteriorated wall painting located in the second hypogeous level of St. Clement Basilica, Rome. The results of the experiments were two moisture distribution maps at depth of 0.1 cm and 0.5 cm, showed in Figure \ref{moisturemap2}. As can be seen from the figure \ref{moisturemap2}, there is a clear difference between the two profiles that can be falsely interpreted. In fact to understand this map, the state of conservation of the wall painting as well as the environmental conditions must be taken into account. The map obtained at about 0.1 cm of distance gave the informations of the distribution of water, due to the presence of highly hygroscopic salts, which were sensitive to the high environmental relative humidity. Instead the map obtained at 0.5 cm into the plaster gave informations about the route of the rising damp.
@@ -474,7 +466,7 @@ These kind of maps are very useful for quantifying the moisture content at a cer
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{moisturemap2}
+	\includegraphics[width=0.7\linewidth]{figures/moisturemap2}
 	\caption{Map of the distribution of the moisture obtained using the 1- mm probehead. b) Map of the distribution of the moisture obtained using the 5-mm probehead. 
 Selected from \cite{quattrofresco}} \label{moisturemap2}
 \end{figure}
@@ -487,18 +479,18 @@ This is because the different ability to absorb water from the different materia
 As you can see in Figure \ref{villapalagione} in dry conditions the signal is rather weak, and it is mainly due to the bound water, which has less mobility and therefore a faster relaxation. In wet conditions the signal is higher due to the presence of a light layer of water sprayed on the surface and therefore to the presence of more mobile water protons. In both cases, however, it is possible to see a rather regular trend of the various peaks with increasing depth. In conclusion from the obtained depth profilies we can draw information on the thickness of the various layers hidden under the surface as each layer has absorbed a different amount of water visible from the progress of the signal as a function of depth and since each material has a different affinity to bind to water, we can say that the various peaks correspond to different materials and therefore different layers. 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{villapalagione}
+	\includegraphics[width=0.5\textwidth]{figures/villapalagione}
 	\caption{Depth Profiles across 3 mm depth into a wall with several paint layers and a photograph which shows the different paint layers of the wall.Selected from \cite{cinquefresco}} \label{villapalagione}
 \end{figure}
 
 A further study similar to the previous one has been carried out involving Single-Sided NMR to study a restored wall painting “La Madonna della Carcere” from the Fortezza Medicea in Volterra\cite{cinquefresco}. The painting had been detached from the wall by a previous restoration procedure using the “strappo” technique, that consists in removing the intonaco by the application of linen fabric embedded in animal glue or arabic gum binders. The painting is then detached from the arriccio layer (a rougher layer underneath the intonaco layer present in wall paintings as a preparation layer) and  subsequently the intonaco layer is  glued from the canvas to a support usually made of wood with specific adhesives\cite{cinquefresco}. Thanks to careful recording and special brushstrokes it was possibile to distinguish original painting from the restored areas. By NMR-MOUSE (PM10) in the 5 $mm$ spacer set-up, depth profiles of different zones, were obtained. In Figure \ref{madonna} the depth profiles of the relative areas are shown. In this case, given the different capacity of the different materials to absorb water of which the artifact is composed, the amplitude of the signal is proportional to the content of the bound water, ie of the water bounded in the material itself through hydrogen bonds. Let us recall also that the bound water is associated with the shortest component of relaxation times due to its lower mobility compared to that which may have water confined in the pores spaces. As you can see on the left of Fig.\ref{madonna}a there is a steep slope of the signal amplitude due the the organic adhesive used to attach the fresco to the support. At about 4 mm of depth the signal is very low due to a low proton density in the mortar layer. The trend is the same for the gold and the neck areas, but the red garment shows a decrease attributed to a different levels of bound water. The profiles of the original gold and the neck match quite well, indicating that no adhesive or organic binder were used. For the red garment the restored part gave about the same results of the original areas indicating again the absence of adhesive or organic binder .   
 \begin{figure}[h]
 	\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=\columnwidth]{madonna1} 
+\includegraphics[width=\columnwidth]{figures/madonna1} 
 \caption{}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=\columnwidth]{madonna2}
+\includegraphics[width=\columnwidth]{figures/madonna2}
 \caption{}
 \end{subfigure}
 \caption{photographs of the areas where measurements were performed and depth profiles at the relative areas. Selected from \cite{cinquefresco}} \label{madonna}
@@ -515,7 +507,7 @@ Many conservation treatments involve exposing paintings to moisture for varying 
   
   \begin{figure}[h]
   	\centering
-  	\includegraphics[width=0.9\linewidth]{dueprofilimouse}	
+  	\includegraphics[width=0.9\linewidth]{figures/dueprofilimouse}	
   	\caption{Moisture profiles during absorption and drying obtained with the NMR Mouse. The time step between two subsequent profiles is 41 minutes (final absorption signal recorded after 14.5 hours). Selected from \cite{duepaint}}\label{dueprofilimouse}
   \end{figure}
   
@@ -528,12 +520,12 @@ Many conservation treatments involve exposing paintings to moisture for varying 
    \begin{figure}[h]
 
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=\columnwidth,, height= 0.8\textwidth]{PEG} 
+\includegraphics[width=\columnwidth,, height= 0.8\textwidth]{figures/PEG} 
 \caption{}
 
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=\columnwidth, height= 0.8\textwidth]{68h}
+\includegraphics[width=\columnwidth, height= 0.8\textwidth]{figures/68h}
 \caption{}
 
 \end{subfigure}
@@ -554,12 +546,12 @@ It is interesting to note that no sample has been collected from the painting, a
 
 
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=\columnwidth,, height= 0.8\textwidth]{adorazionemagi} 
+\includegraphics[width=\columnwidth,, height= 0.8\textwidth]{figures/adorazionemagi} 
 \caption{}
 
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=\columnwidth, height= 0.8\textwidth]{depthprofile}
+\includegraphics[width=\columnwidth, height= 0.8\textwidth]{figures/depthprofile}
 \caption{}
 
 \end{subfigure}
@@ -575,7 +567,7 @@ In these cases the relaxation time examined is $T_2$. The main reason is that th
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\columnwidth]{solvents}
+	\includegraphics[width=\columnwidth]{figures/solvents}
 	\caption{Moisture depth profiles through paintings. Selected from \cite{exseifresco}}\label{solvents}
 \end{figure}
 
@@ -595,12 +587,12 @@ Water in wood takes two form: confined water and bound water( Figure \ref{wood} 
 \begin{figure}[h]
 
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\textwidth, height= 0.9\textwidth]{freewater} 
+\includegraphics[width=0.9\textwidth, height= 0.9\textwidth]{figures/freewater} 
 
 
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=\columnwidth, height= 0.9\textwidth]{boundwater}
+\includegraphics[width=\columnwidth, height= 0.9\textwidth]{figures/boundwater}
 
 
 \end{subfigure}
@@ -623,7 +615,7 @@ The transformed data show separated peaks due to the contribution of cell water(
 In the light of these results, in the sarcophagus panel there was a clear loss of lumen water for both the outer and the inner part and this behavior is caused by the aging process. Furthermore, for the external part, that has been more subject to degradation phenomena, there is also a decrease of the amount of the cell water confirmed by a reduction in the shorter values of $T_2$.\\
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.99\textwidth]{sarcofago}
+	\includegraphics[width=0.99\textwidth]{figures/sarcofago}
 	\caption{c) CPMG decays reported in a semi-logarithmic scale measured on areas of the inner side of the panel called IP4 and IP7, and on areas of the outer side called HP2 and HP3, and on a seasoned yew wood. d) $T_2$ distributions obtained by applying a Laplace transformation to CPMG decays measured on seasoned yew wood, on areas IP7 and HP2. Selected from \cite{trewood} }\label{sarcofago}
 \end{figure}
 Unlike the previous experiment, where ancient wood has been compared with seasoned wood, in a study reported in \cite{quattrowood} ,  wood samples, ancient and modern ones, from the trussed rafter of the Castle of Valentino in Turin, XV century, were considered. Relaxation measurements were performed in-situ tanks to Single-Sided NMR.
@@ -632,7 +624,7 @@ So the echo decays, obtained applying a CPMG sequence, regard the shortest compo
  The decrease in $T_2$ reflects a clear loss of bound water for the ancient sample. That seems quite reasonable since in modern wood there is more water, both bounded and confined, than the ancient one. In fact in modern wood, we can consider the microfibril more "fresh" due to more glucose. Ancient wood on the contrary , due to aging that leads to natural deterioration, presents a low moisture content.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.5\linewidth, height=0.35\linewidth]{wood1}
+	\includegraphics[width=0.5\linewidth, height=0.35\linewidth]{figures/wood1}
 	\caption{Echo decay of ancient, filled circles, and modern, empty squares, fir wood samples in semi-log scale.Selected from \cite{quattrowood} }\label{wood1}
 \end{figure}
 
@@ -645,7 +637,7 @@ The paper of high quality is made from about equimolar amounts of cellulose and 
 New and artificially aged parchments were studied by Single-Sided NMR in different relative humidity conditions, to investigate the effects of degradation on the relaxation time $T_2$ \cite{ottopaper}. Samples of aged parchment were obtained by exposing new parchments to \ang{80}C at by alternating $40\%$ and $80\%$ relative humidity for increasing times up to 32 days. In Figure \ref{parchment}, the relaxation times $T_2$ of the rigid (short) and amorphous phases (long) of the aged parchment as a function of the ageing time.  The amorphous component shows the most significant changes. In fact, from 2 to 8 ageing days the amorphous phase is characterized by lower $T_2$ values then the values obtained for the not treated parchment, while higher $T_2$ values are obtained at 16 and 32 days ageing. This trend is due to the structure complexity of parchment consisting of a matrix of collagen fibres and structural proteins. The reduction the amorphous phase after 2 ageing days can be interpreted in terms of a tighter packing of collagen fibrils due to thermally induced cross-linking \cite{ottopaper}. The increase instead could be assigned to a gradual increase of the primary peptide bonds cleavage within the collagen helix. The cleavage of polypeptide chains (promoted by high temperature and high humidity) competes with the process of formation of cross-links (promoted by Temperature treatment and low relative humidity) which leads to a progressive improvement in chain mobility as confirmed by the increase in $T_2$ for amorphous phase. On the other hand, the gradual increase in the short relaxation time suggests the appearance of structural disorder in the rigid phase, which denoted a gradual increase in $T_2$ \cite{ottopaper}.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\textwidth]{parchment}
+	\includegraphics[width=0.6\textwidth]{figures/parchment}
 	\caption{Changes in relaxation time $T_2$. Selected from \cite{ottopaper} }\label{parchment}
 \end{figure}
 As regard paper, degradation is a complex phenomenon that may be caused by biotic action of fungi and bacteria and/or chemical attacks. In chemical terms, the degradation of paper is concretely the conversion of fibrous and highly crystalline cellulose into a largely amorphous degraded material. Such transformation is the result of different, complex processes among which acid hydrolysis is the most important. Anyway, in all cases of paper degradation, a loss of water associated with a shortening of the  relaxation time $T_2$ is observed. In fact, a study of N.Proietti, D.Capitani et al.(2004) \cite{settepaper}, shows that after enzymatic attack, a net decrease of $T_2$ is estabilished. Artificial aging paper has been studied with both conventional $^1H$ NMR performed by the Spin Master2000 (Stelar,Pavia), and Single-Sided NMR performed by the Eureka Mouse (EM10). The relaxation times $T_2$ were measured with the CPMG sequence on untreated paper, paper oxidized for 48 h with 0.1M of $NaIO_4$ and  paper oxidized for 48 h with 0.4M of $NaIO_4$. Data are shown in Figure \ref{paper1} by Inverting the CPMG relaxation decays to get the relaxation time distribution. In both cases, the center of the distribution shifts to shorter $T_2$ values as the degradation of the sample increases.
@@ -654,12 +646,12 @@ In conclusion, the shortening of the relaxation time $T_2$ can be observed both 
 \begin{figure}[h]
 
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=\columnwidth, height= 0.8\textwidth]{standardrela} 
+\includegraphics[width=\columnwidth, height= 0.8\textwidth]{figures/standardrela} 
 \caption{Standard relaxometer}
 
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=\columnwidth, height= 0.8\textwidth]{singlesidedrela}
+\includegraphics[width=\columnwidth, height= 0.8\textwidth]{figures/singlesidedrela}
 \caption{Single-Sided relaxometer}
 
 \end{subfigure}
@@ -676,11 +668,11 @@ The data of the IC zones, instead, show a different behavior. In fact the concen
 \centering
 \begin{subfigure}{0.6\textwidth}
 \
-\includegraphics[width=0.9\linewidth, height=6cm]{irpaper} 
+\includegraphics[width=0.9\linewidth, height=6cm]{figures/irpaper} 
 \caption{Fit of the IR results}
 \end{subfigure}
 \begin{subfigure}{0.6\textwidth}
-\includegraphics[width=0.99\linewidth, height=6cm]{cpmgpaper}
+\includegraphics[width=0.99\linewidth, height=6cm]{figures/cpmgpaper}
 \caption{Fit of the CPMG results}
 \end{subfigure}
 \caption{Fit of the CPMG and IR results on the four different parts of the Codex Major pages: Edge (E), Spot (S), Ink Crumbled (IC) and Ink Not Crumbled (INC). In the inset of (a) there is is a detail which shows the behavior of relaxation in the IC zone. Selected from \cite{duepaper}.}\label{paper2}
@@ -704,8 +696,10 @@ Wood and Paper, which are made of chains of glucose to form cellulose, have been
 
 
 \clearpage
-\printbibliography
-\addcontentsline{toc}{chapter}{\refname}
+
+\bibliographystyle{unsrt}
+\bibliography{Bibliografia}
+
 
 \clearpage
 \thispagestyle{empty}
